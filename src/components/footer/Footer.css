@@ -1,0 +1,106 @@
+/* ==========================================================================
+   NOTEBOOK FOOTER COLOPHON CSS
+   ========================================================================== */
+
+.notebook-footer {
+  width: 100%;
+  border-top: 2px solid var(--paper-border);
+  background-color: #ffffff;
+  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content-wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.74rem;
+  color: var(--ink-secondary);
+}
+
+.footer-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.footer-left-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--ink-primary);
+  letter-spacing: 0.05em;
+}
+
+.footer-divider {
+  color: var(--ink-muted);
+}
+
+.footer-social-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--ink-primary);
+  text-decoration: underline;
+}
+
+.footer-top-btn {
+  background: transparent;
+  border: 1px solid var(--paper-border-faint);
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.footer-top-btn:hover {
+  background-color: var(--sticker-yellow);
+  border-color: var(--paper-border);
+}
+
+.footer-copyright-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-top: 1px dashed var(--paper-border-faint);
+  padding-top: 0.75rem;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+}
+
+.footer-notebook-stamp {
+  letter-spacing: 0.04em;
+}

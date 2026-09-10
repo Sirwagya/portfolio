@@ -1,0 +1,379 @@
+/* ==========================================================================
+   SIRWAGYA.DEV — STUDIO NOTEBOOK & TACTILE SKETCHBOOK DESIGN SYSTEM
+   Editorial x Tactile x Playful Handmade x AI & Full Stack Architecture
+   ========================================================================== */
+
+:root {
+  /* Surface & Canvas Tokens */
+  --desk-bg: #e8e4dc;
+  --paper-bg: #faf8f5;
+  --paper-card: #ffffff;
+  --paper-card-subtle: #f5f2eb;
+  --paper-border: #18181b;
+  --paper-border-faint: rgba(24, 24, 27, 0.12);
+  --paper-ruled: rgba(24, 24, 27, 0.048);
+  --paper-grid: rgba(24, 24, 27, 0.035);
+
+  /* Ink Tokens */
+  --ink-primary: #18181b;
+  --ink-secondary: #52525b;
+  --ink-muted: #71717a;
+  --ink-faint: #a1a1aa;
+
+  /* Playful Tactile Sticker / Marker Accents */
+  --sticker-yellow: #fef08a;
+  --sticker-yellow-text: #854d0e;
+  --sticker-green: #bbf7d0;
+  --sticker-green-text: #166534;
+  --sticker-pink: #fbcfe8;
+  --sticker-pink-text: #9d174d;
+  --sticker-blue: #bae6fd;
+  --sticker-blue-text: #075985;
+  --sticker-orange: #fed7aa;
+  --sticker-orange-text: #9a3412;
+  --sticker-purple: #ddd6fe;
+  --sticker-purple-text: #5b21b6;
+  --accent-orange: #ea580c;
+
+  /* Tape Colors */
+  --tape-neutral: rgba(245, 238, 220, 0.88);
+  --tape-yellow: rgba(254, 240, 138, 0.75);
+  --tape-blue: rgba(186, 230, 253, 0.72);
+  --tape-pink: rgba(251, 207, 232, 0.72);
+
+  /* Typography */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-tech: 'Space Grotesk', -apple-system, sans-serif;
+
+  /* Shadows (Tactile Offset Ink Shadows) */
+  --shadow-paper: 0 16px 48px -12px rgba(24, 24, 27, 0.12), 0 0 0 1px rgba(24, 24, 27, 0.08);
+  --shadow-card: 3px 4px 0px #18181b;
+  --shadow-card-hover: 5px 6px 0px #18181b;
+  --shadow-card-sm: 2px 2px 0px #18181b;
+  --shadow-sticker: 2px 3px 0px rgba(24, 24, 27, 0.15);
+
+  /* Easings */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Canvas Dimension */
+  --canvas-max-width: 1240px;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--desk-bg);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--sticker-yellow);
+  color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   PAGE FRAME & NOTEBOOK CANVAS ARCHITECTURE
+   ========================================================================== */
+
+.page-desk-frame {
+  min-height: 100vh;
+  width: 100%;
+  padding: clamp(0.5rem, 3.5vw, 2.75rem);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.notebook-sheet {
+  width: 100%;
+  max-width: var(--canvas-max-width);
+  background-color: var(--paper-bg);
+  /* Subtle Notebook Ruled Lines Background */
+  background-image: 
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      var(--paper-ruled) 28px
+    ),
+    radial-gradient(var(--paper-grid) 1px, transparent 1px);
+  background-size: 100% 28px, 24px 24px;
+  background-position: 0 0, 12px 12px;
+  border: 1.5px solid var(--paper-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.25s ease;
+}
+
+/* Notebook left margin guide line (editorial red margin rule) */
+.notebook-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(2rem, 6vw, 4.5rem);
+  width: 1px;
+  background-color: rgba(239, 68, 68, 0.18);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .page-desk-frame {
+    padding: 0.35rem;
+  }
+  .notebook-sheet {
+    border-radius: 8px;
+    border-width: 1px;
+  }
+  .notebook-sheet::before {
+    display: none; /* Hide margin guide on mobile to maximize readability */
+  }
+}
+
+/* Subtle Film Grain */
+.notebook-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   TYPOGRAPHY CLASSES
+   ========================================================================== */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.font-tech {
+  font-family: var(--font-tech);
+  letter-spacing: -0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   TACTILE NOTEBOOK PRIMITIVES: STICKERS, LABELS, TAPE, STAMPS
+   ========================================================================== */
+
+/* Washi Tape Strip */
+.washi-tape {
+  position: absolute;
+  height: 22px;
+  background-color: var(--tape-neutral);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  opacity: 0.85;
+  z-index: 10;
+  pointer-events: none;
+  transform-origin: center center;
+  border-left: 2px dashed rgba(24, 24, 27, 0.15);
+  border-right: 2px dashed rgba(24, 24, 27, 0.15);
+}
+
+.washi-tape-yellow {
+  background-color: var(--tape-yellow);
+}
+
+.washi-tape-blue {
+  background-color: var(--tape-blue);
+}
+
+.washi-tape-pink {
+  background-color: var(--tape-pink);
+}
+
+/* Paper Sticker Pill */
+.paper-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid var(--paper-border);
+  box-shadow: var(--shadow-sticker);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
+  user-select: none;
+  position: relative;
+}
+
+.paper-sticker:hover {
+  transform: translateY(-2px) rotate(1deg) scale(1.04);
+  box-shadow: 3px 4px 0px var(--paper-border);
+}
+
+.sticker-yellow {
+  background-color: var(--sticker-yellow);
+  color: var(--ink-primary);
+}
+
+.sticker-green {
+  background-color: var(--sticker-green);
+  color: var(--ink-primary);
+}
+
+.sticker-pink {
+  background-color: var(--sticker-pink);
+  color: var(--ink-primary);
+}
+
+.sticker-blue {
+  background-color: var(--sticker-blue);
+  color: var(--ink-primary);
+}
+
+.sticker-orange {
+  background-color: var(--sticker-orange);
+  color: var(--ink-primary);
+}
+
+.sticker-purple {
+  background-color: var(--sticker-purple);
+  color: var(--ink-primary);
+}
+
+.sticker-white {
+  background-color: #ffffff;
+  color: var(--ink-primary);
+}
+
+/* Tactile Ink Button */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  background-color: var(--ink-primary);
+  color: #ffffff;
+  font-family: var(--font-tech);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1.5px solid var(--ink-primary);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0px var(--sticker-orange);
+  cursor: pointer;
+  transition: transform 0.18s var(--ease-spring), box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.btn-ink:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--sticker-orange);
+  background-color: #000000;
+}
+
+.btn-ink:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px var(--sticker-orange);
+}
+
+.btn-ink-outline {
+  background-color: #ffffff;
+  color: var(--ink-primary);
+  border: 1.5px solid var(--ink-primary);
+  box-shadow: 3px 3px 0px var(--ink-primary);
+}
+
+.btn-ink-outline:hover {
+  background-color: var(--sticker-yellow);
+  box-shadow: 4px 4px 0px var(--ink-primary);
+}
+
+/* Handwritten Note Annotation */
+.handwritten-annotation {
+  font-family: var(--font-handwriting);
+  font-size: 1.45rem;
+  color: #2563eb; /* Classic blueprint/sketch pen blue */
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.handwritten-annotation.ink-red {
+  color: #dc2626; /* Teacher/grading red pen */
+}
+
+.handwritten-annotation.ink-dark {
+  color: var(--ink-primary);
+}
+
+/* Section Framing */
+.notebook-section {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3.5rem);
+  position: relative;
+  border-bottom: 1.5px dashed var(--paper-border-faint);
+}
+
+.notebook-section:last-child {
+  border-bottom: none;
+}
+
+/* Accessibility Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2.5px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
