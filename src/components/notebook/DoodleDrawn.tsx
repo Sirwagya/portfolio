@@ -2,7 +2,7 @@ import React from 'react';
 
 // Hand-drawn sketchy arrow pointing in various directions
 export const DoodleArrow: React.FC<{
-  direction?: 'down' | 'right' | 'up-right' | 'curved-down' | 'loop';
+  direction?: 'down' | 'right' | 'up-right' | 'up-left' | 'curved-down' | 'loop';
   color?: string;
   className?: string;
   width?: number;
@@ -57,16 +57,50 @@ export const DoodleArrow: React.FC<{
       <svg
         width={width}
         height={height}
-        viewBox="0 0 50 50"
+        viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
       >
         <path
-          d="M10 40C16 32 26 20 40 10M40 10L28 12M40 10L38 22"
+          d="M8 34C13 22 21 13 32 6"
           stroke={color}
-          strokeWidth="2.5"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M20 7L32 6L29 18"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  if (direction === 'up-left') {
+    return (
+      <svg
+        width={width}
+        height={height}
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        aria-hidden="true"
+      >
+        <path
+          d="M32 34C27 22 19 13 8 6"
+          stroke={color}
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M20 7L8 6L11 18"
+          stroke={color}
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />

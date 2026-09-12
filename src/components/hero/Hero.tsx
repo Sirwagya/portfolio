@@ -43,8 +43,9 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
       paused: !isReady,
       defaults: { ease: 'power2.out' },
       onComplete: () => {
+        gsap.set('.hero-avatar-badge', { clearProps: 'transform,opacity,visibility' });
         gsap.set(
-          '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .hero-shekhar-handwritten, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .hero-avatar-badge, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
+          '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .hero-shekhar-handwritten, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
           { clearProps: 'opacity,visibility,clipPath' }
         );
       }
@@ -199,9 +200,9 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                 SIRWAGYA
               </div>
             </div>
-            <span className="hero-shekhar-handwritten font-handwriting">
+            {/* <span className="hero-shekhar-handwritten font-handwriting">
               shekhar
-            </span>
+            </span> */}
           </div>
         </div>
 
@@ -211,7 +212,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
             <div className="pill-sticker pill-role">
               <span>Product Engineer</span>
             </div>
-            <DoodleArrow direction="up-right" color="#ea580c" width={22} height={22} className="arrow-to-box-left hero-arrow-decor" />
+            <DoodleArrow direction="up-right" color="#121316" width={36} height={36} className="arrow-to-box-left hero-arrow-decor" />
           </div>
 
           <div className="pill-sticker pill-status-available">
@@ -223,7 +224,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
             <div className="pill-sticker pill-location">
               <span>Pune / Remote</span>
             </div>
-            <DoodleArrow direction="up-right" color="#0369a1" width={22} height={22} className="arrow-to-box-right hero-arrow-decor" />
+            <DoodleArrow direction="up-left" color="#121316" width={36} height={36} className="arrow-to-box-right hero-arrow-decor" />
           </div>
         </div>
 
@@ -256,21 +257,45 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
           <h1 className="hero-statement-h1 font-headline">
             <span className="headline-line headline-line-1">
               I build software that{' '}
-              <span className="inline-hero-badge badge-target">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15803d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" fill="#15803d" />
+              <span className="inline-hero-badge badge-target" aria-label="target icon">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <circle cx="22" cy="22" r="19.5" fill="#15ac68" stroke="#171411" strokeWidth="2.5" />
+                  <circle cx="22" cy="22" r="13.2" fill="#ffffff" />
+                  <circle cx="22" cy="22" r="6.6" fill="#15ac68" />
+                  <circle cx="16.8" cy="11.8" r="2.5" fill="#171411" />
                 </svg>
               </span>
             </span>
             <br />
             <span className="headline-line headline-line-2">
               feels alive.{' '}
-              <span className="inline-hero-badge badge-flower">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#f472b6" stroke="#9d174d" strokeWidth="1.5">
-                  <path d="M12 2C13.5 5 16 6 19 6C16 7.5 15 10 15 12C15 14 16 16.5 19 18C16 18 13.5 19 12 22C10.5 19 8 18 5 18C8 16.5 9 14 9 12C9 10 8 7.5 5 6C8 6 10.5 5 12 2Z" />
-                  <circle cx="12" cy="12" r="3" fill="#fde047" stroke="#854d0e" strokeWidth="1" />
+              <span className="inline-hero-badge badge-flower" aria-label="flower icon">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <g fill="#f94b8a">
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(0 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(36 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(72 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(108 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(144 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(180 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(216 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(252 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(288 22 22)" />
+                    <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(324 22 22)" />
+                  </g>
+                  <g fill="#ffffff">
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(18 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(54 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(90 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(126 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(162 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(198 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(234 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(270 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(306 22 22)" />
+                    <polygon points="22,15 22.8,18.5 21.2,18.5" transform="rotate(342 22 22)" />
+                  </g>
+                  <circle cx="22" cy="22" r="5" fill="#171411" />
                 </svg>
               </span>
             </span>
@@ -284,9 +309,10 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
             className="hero-contact-dark-btn"
             aria-label="Contact Sirwagya"
           >
-            <span className="btn-square-accent" />
-            <span>CONTACT ME</span>
-            <ArrowUpRight size={14} />
+            <span className="btn-square-accent">
+              <ArrowUpRight size={15} strokeWidth={2.4} color="#171411" />
+            </span>
+            <span className="btn-label">CONTACT ME</span>
           </button>
         </div>
 

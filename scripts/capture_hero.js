@@ -57,6 +57,28 @@ async function capture() {
     console.log('Waiting for splash + hero animation...');
     await new Promise(r => setTimeout(r, 5500));
 
+    // Log rects
+    const rectsRes = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const getR = sel => {
+          const el = document.querySelector(sel);
+          if (!el) return null;
+          const r = el.getBoundingClientRect();
+          return { sel, left: Math.round(r.left), right: Math.round(r.right), top: Math.round(r.top), bottom: Math.round(r.bottom), width: Math.round(r.width), height: Math.round(r.height) };
+        };
+        return JSON.stringify({
+          box: getR('.hero-framed-nameplate'),
+          role: getR('.pill-role'),
+          arrowLeft: getR('.arrow-to-box-left'),
+          status: getR('.pill-status-available'),
+          location: getR('.pill-location'),
+          arrowRight: getR('.arrow-to-box-right'),
+          shekhar: getR('.hero-shekhar-handwritten')
+        }, null, 2);
+      })()`
+    });
+    console.log("ELEMENT RECTS AT 1440:", rectsRes.result.value);
+
     // Capture 1440x900
     await send('Emulation.setDeviceMetricsOverride', {
       width: 1440,
