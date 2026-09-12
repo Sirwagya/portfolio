@@ -1,8 +1,7 @@
 import { execSync } from "child_process";
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const OUT_DIR =
-  "/Users/sirwxgya/.gemini/antigravity-ide/brain/230919de-bec9-4b5a-9e94-65eea9b00173";
+const OUT_DIR = '/Users/sirwagyashekhar/.gemini/antigravity-ide/brain/230919de-bec9-4b5a-9e94-65eea9b00173';
 
 function snap(name, width, height, url = "http://127.0.0.1:5173/") {
   const outFile = `${OUT_DIR}/${name}.png`;

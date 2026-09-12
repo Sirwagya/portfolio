@@ -172,6 +172,7 @@ export const ProjectsSection: React.FC = () => {
                   <div
                     className="sticky-showcase-board"
                     style={{ backgroundColor: proj.theme.frameBg }}
+                    aria-hidden="true"
                   >
                     {/* Washi Tape Corner Accents */}
                     <span className="sticky-washi-tape tape-corner-left" aria-hidden="true" />

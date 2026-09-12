@@ -40,14 +40,18 @@ export const AboutSection: React.FC = () => {
       {/* Subtle Curved Horizon Divider with 'about me!' Annotation */}
       <div className="about-curved-divider-wrap about-anim">
         <div className="about-curved-divider-annotation">
-          <HandwrittenNote color="dark" size="lg" rotate={-2}>
-            about me!
-          </HandwrittenNote>
+          <h2 className="about-section-heading">
+            <span className="sr-only">ABOUT SIRWAGYA SHEKHAR</span>
+            <HandwrittenNote color="dark" size="lg" rotate={-2}>
+              about me!
+            </HandwrittenNote>
+          </h2>
         </div>
         <svg
           className="about-curved-divider-svg"
           viewBox="0 0 1000 32"
           preserveAspectRatio="none"
+          aria-hidden="true"
         >
           <path
             d="M0,16 Q500,30 1000,16"
@@ -103,12 +107,17 @@ export const AboutSection: React.FC = () => {
               >
                 Vedam School of Technology
               </a>{" "}
-              in Pune, Maharashtra, and a full stack developer and AI builder
-              who likes taking ambitious ideas and figuring out how to make them
-              work. Most of my time goes into building and shipping things—from
-              AI systems and backend infrastructure to polished
-              interfaces—always learning by building, tackling harder problems,
-              and figuring out how to make software scale.
+              in Pune, Maharashtra, and a full stack developer and AI builder who
+              likes taking ideas that seem a little ambitious and figuring out how
+              to make them actually work. Most of my time goes into building and
+              shipping things, from AI systems and backend infrastructure to the
+              interfaces people interact with. Along the way, I’m going deeper
+              into DSA, backend architecture, system design, and AI engineering,
+              with a focus on understanding not just how to build something, but
+              how to build it well. I’m still figuring a lot of things out, but
+              that’s part of what I enjoy: learning by building, taking on harder
+              problems, and eventually working on software that can scale beyond
+              the projects I’m building today.
             </p>
 
             {/* Scalloped / Colorful Paper Badges (2x2 Grid / Row) */}

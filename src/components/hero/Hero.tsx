@@ -19,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
     // Accessibility: instant static display for users preferring reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       gsap.set(
-        '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .hero-shekhar-handwritten, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .hero-avatar-badge, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
+        '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .hero-avatar-badge, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
         { opacity: 1, y: 0, x: 0, scale: 1, clipPath: 'none', clearProps: 'all' }
       );
       return;
@@ -29,7 +29,6 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
     gsap.set('.hero-name-intro', { opacity: 0, y: -6 });
     gsap.set('.hero-framed-nameplate', { opacity: 0, scale: 0.95 });
     gsap.set('.hero-wordmark-mask', { clipPath: 'inset(100% 0% 0% 0%)', y: 8, opacity: 0 });
-    gsap.set('.hero-shekhar-handwritten', { opacity: 0, scale: 0.65, rotation: -12 });
     gsap.set(['.pill-made-things', '.pill-sweat-details'], { opacity: 0, scale: 0.82, y: -5 });
     gsap.set(['.pill-left', '.pill-status-available', '.pill-right'], { opacity: 0, y: 6, scale: 0.94 });
     gsap.set('.headline-line-1', { opacity: 0, y: 10 });
@@ -45,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
       onComplete: () => {
         gsap.set('.hero-avatar-badge', { clearProps: 'transform,opacity,visibility' });
         gsap.set(
-          '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .hero-shekhar-handwritten, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
+          '.hero-name-intro, .hero-framed-nameplate, .hero-wordmark-mask, .pill-made-things, .pill-sweat-details, .pill-left, .pill-status-available, .pill-right, .headline-line-1, .headline-line-2, .inline-hero-badge, .hero-arrow-decor, .hero-contact-cta',
           { clearProps: 'opacity,visibility,clipPath' }
         );
       }
@@ -74,15 +73,6 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
       duration: 0.28,
       ease: 'power3.out'
     }, 0.1);
-
-    // STEP 3: Handwritten "shekhar" appears
-    tl.to('.hero-shekhar-handwritten', {
-      opacity: 1,
-      scale: 1,
-      rotation: -5,
-      duration: 0.22,
-      ease: 'back.out(1.8)'
-    }, 0.22);
 
     // STEP 4: Upper labels appear with slight stagger
     tl.to(['.pill-made-things', '.pill-sweat-details'], {

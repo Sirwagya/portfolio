@@ -25,11 +25,11 @@ export const ALL_PROJECTS: ProjectData[] = [
     id: 'nexora-ai',
     number: '01',
     title: 'Nexora AI',
-    date: 'OCT 24, 2024',
+    date: 'SEP 1, 2026',
     category: 'AI SYSTEMS / COMPUTER VISION',
     tagline: 'Helping construction teams catch structural mistakes before they become expensive.',
     repoUrl: 'https://github.com/urvashislash/nexora-ai',
-    tags: ['COMPUTER VISION', 'SITE INTEL'],
+    tags: ['TEAM PROJECT', 'COMPUTER VISION', 'SITE INTEL'],
     theme: {
       bg: '#2563eb', // Royal Blue
       tabBg: '#2563eb',
