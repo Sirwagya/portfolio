@@ -1,210 +1,105 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, CheckCircle, Database, ShieldCheck, Terminal, Users, Cpu } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { PROJECTS } from '../../data/projects';
 import { WashiTape } from '../notebook/WashiTape';
 import { HandwrittenNote } from '../notebook/HandwrittenNote';
-import { PaperSticker } from '../notebook/PaperSticker';
 import './ProjectCardNexora.css';
 
 export const ProjectCardNexora: React.FC = () => {
   const project = PROJECTS.find(p => p.id === 'nexora-ai')!;
-  const [activeStep, setActiveStep] = useState(0);
 
-  const steps = project.pipelineSteps || [];
+  const pipelineStages = [
+    { num: '01', title: 'FIELD EVIDENCE', desc: 'Photos, Drone Scans, BIM logs' },
+    { num: '02', title: 'AI EXTRACTION', desc: 'Multimodal Vision & OCR' },
+    { num: '03', title: 'HYBRID MATCH', desc: 'Vectors (Qdrant) + Lexical Graph' },
+    { num: '04', title: 'ASYNC ENGINE', desc: 'Distributed RabbitMQ Workers' },
+    { num: '05', title: 'TRUST PLANE', desc: 'Deterministic Invariant Validation' },
+    { num: '06', title: 'PLANNER REVIEW', desc: 'Auditable Progress Sign-off' },
+  ];
 
   return (
-    <article className="project-sheet nexora-sheet" aria-label="Nexora AI Case Study">
-      {/* Decorative Washi Tapes */}
-      <WashiTape color="yellow" top="-10px" left="28px" rotate={-2} width={80} />
-      <WashiTape color="blue" top="-8px" right="36px" rotate={3} width={70} />
+    <article className="project-folder-sheet nexora-sheet" aria-label="Nexora AI Case Study">
+      {/* Folder Tab at Top Left */}
+      <div className="folder-tab-notch tab-blue tab-notch-01">
+        <span className="folder-tab-title font-mono">+ PROJECT 01 &bull; NEXORA AI</span>
+      </div>
 
-      <div className="sheet-inner">
-        {/* Top Header Stamp & Team Tag */}
-        <div className="sheet-top-banner">
-          <div className="sheet-badge-group">
-            <PaperSticker color="yellow" rotate={-2}>
-              PROJECT // 01
-            </PaperSticker>
-            <PaperSticker color="green" rotate={1}>
-              FLAGSHIP ARCHITECTURE
-            </PaperSticker>
-            <span className="sheet-category font-mono">{project.category}</span>
+      <div className="sheet-layout-grid">
+        {/* Left Column: Huge Editorial Story */}
+        <div className="sheet-story-left">
+          <div className="sheet-meta-bullet font-mono">
+            <span className="bullet-dot" />
+            <span>2026 &bull; AI SYSTEMS / DISTRIBUTED ARCHITECTURE &bull; TEAM PROJECT</span>
           </div>
 
-          <div className="sheet-team-pill font-mono">
-            <Users size={13} className="team-icon" />
-            <span>TEAM PROJECT &bull; TEAM KASUKABE</span>
-          </div>
-        </div>
+          <h3 className="sheet-big-title font-headline">
+            Nexora AI
+          </h3>
 
-        {/* Big Editorial Title & Tagline */}
-        <div className="sheet-title-section">
-          <div className="title-with-marginalia">
-            <h3 className="sheet-project-title font-display">
-              {project.title}
-            </h3>
-            <HandwrittenNote color="blue" size="md" rotate={2} className="title-note">
+          <p className="sheet-punchy-sentence font-sans">
+            Turning fragmented construction evidence into auditable project intelligence.
+          </p>
+
+          <div className="sheet-marginalia-note">
+            <HandwrittenNote color="blue" size="md" rotate={-2}>
               "evidence &rarr; auditable intelligence"
             </HandwrittenNote>
           </div>
-          <p className="sheet-project-tagline font-tech">
-            {project.tagline}
-          </p>
+
+          <div className="sheet-actions-row">
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sheet-cta-link font-tech"
+            >
+              <span>VIEW REPOSITORY &amp; ARCHITECTURE</span>
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+
+          <div className="sheet-tech-footer font-mono">
+            <span>CORE STACK: Rust (Axum) &bull; FastAPI &bull; PostgreSQL &bull; Qdrant &bull; RabbitMQ</span>
+          </div>
         </div>
 
-        {/* Transparent Attribution Banner */}
-        <div className="sheet-attribution-box font-mono">
-          <div className="attr-row">
-            <span className="attr-key">PROJECT TEAM:</span>
-            <span className="attr-val">{project.attribution}</span>
-          </div>
-          <div className="attr-row highlight-my-role">
-            <span className="attr-key">MY CONTRIBUTIONS:</span>
-            <span className="attr-val">{project.myContribution}</span>
-          </div>
-        </div>
+        {/* Right Column: ONE Large Taped Visual Board */}
+        <div className="sheet-visual-right">
+          <div className="taped-visual-canvas blueprint-dark-canvas">
+            {/* Washi Tapes on Corners */}
+            <WashiTape color="neutral" top="-10px" left="-10px" rotate={-45} width={60} />
+            <WashiTape color="neutral" top="-10px" right="-10px" rotate={45} width={60} />
+            <WashiTape color="neutral" bottom="-10px" left="-10px" rotate={45} width={60} />
+            <WashiTape color="neutral" bottom="-10px" right="-10px" rotate={-45} width={60} />
 
-        {/* Overview Paragraph */}
-        <p className="sheet-overview-text font-sans">
-          {project.overview}
-        </p>
-
-        {/* Technical Architecture Blueprint Board */}
-        <div className="sheet-blueprint-box">
-          <div className="blueprint-header">
-            <div className="blueprint-title">
-              <Cpu size={14} className="blueprint-icon" />
-              <span className="font-mono font-bold">SYSTEM PIPELINE &amp; DATA FLOW</span>
+            <div className="canvas-header font-mono">
+              <span className="canvas-title">PIPELINE: EVIDENCE &rarr; INTELLIGENCE</span>
+              <span className="canvas-badge">STRICT DETERMINISTIC INVARIANTS</span>
             </div>
-            <div className="blueprint-annotation">
-              <HandwrittenNote color="red" size="sm" rotate={-1}>
-                zero hallucination in enterprise schedules
-              </HandwrittenNote>
-            </div>
-          </div>
 
-          {/* Step Navigator Nodes */}
-          <div className="blueprint-steps-deck">
-            <div className="steps-flow-nodes" role="tablist">
-              {steps.map((st, idx) => (
-                <button
-                  key={st.step}
-                  role="tab"
-                  aria-selected={activeStep === idx}
-                  onClick={() => setActiveStep(idx)}
-                  className={`blueprint-node ${activeStep === idx ? 'node-active' : ''}`}
-                >
-                  <span className="node-idx font-mono">{st.step}</span>
-                  <span className="node-name font-tech">{st.label}</span>
-                </button>
+            {/* 6 Large Clear Stages */}
+            <div className="pipeline-nodes-deck">
+              {pipelineStages.map((stage, idx) => (
+                <div key={stage.num} className="pipeline-node-card">
+                  <div className="node-num font-mono">{stage.num}</div>
+                  <div className="node-text-wrap">
+                    <div className="node-title font-tech">{stage.title}</div>
+                    <div className="node-desc font-mono">{stage.desc}</div>
+                  </div>
+                  {idx < pipelineStages.length - 1 && (
+                    <div className="node-flow-arrow font-mono">&rarr;</div>
+                  )}
+                </div>
               ))}
             </div>
 
-            {/* Active Node Detail Card */}
-            <div className="blueprint-active-panel">
-              <div className="active-panel-heading">
-                <span className="font-mono stage-num">STAGE {steps[activeStep]?.step}:</span>
-                <span className="font-tech stage-title">{steps[activeStep]?.label}</span>
-              </div>
-              <p className="stage-desc font-sans">{steps[activeStep]?.desc}</p>
-
-              {/* Technical Specifications by step */}
-              <div className="stage-specs-row font-mono">
-                {activeStep === 0 && (
-                  <>
-                    <span className="spec-badge">Supabase S3 Storage</span>
-                    <span className="spec-badge">MIME: PDF, JPG, CSV, WAV</span>
-                  </>
-                )}
-                {activeStep === 1 && (
-                  <>
-                    <span className="spec-badge">FastAPI Asynchronous Coroutines</span>
-                    <span className="spec-badge">Activity Milestone Extraction</span>
-                  </>
-                )}
-                {activeStep === 2 && (
-                  <>
-                    <span className="spec-badge">RapidFuzz Levenshtein Matching</span>
-                    <span className="spec-badge">Sentence-Transformers Embeddings</span>
-                  </>
-                )}
-                {activeStep === 3 && (
-                  <>
-                    <span className="spec-badge">RabbitMQ Direct Exchange (nexora.jobs)</span>
-                    <span className="spec-badge">Redis Job-State Lock</span>
-                  </>
-                )}
-                {activeStep === 4 && (
-                  <>
-                    <span className="spec-badge">Rust (Axum) High-Concurrency</span>
-                    <span className="spec-badge">Primavera P6 XML Export</span>
-                    <span className="spec-badge">SHA-256 Audit Trail</span>
-                  </>
-                )}
-              </div>
+            <div className="canvas-footer font-handwriting">
+              <span style={{ color: '#60a5fa', fontSize: '1.25rem' }}>
+                "zero hallucination in enterprise schedule tracking"
+              </span>
             </div>
           </div>
         </div>
-
-        {/* Engineering Highlights & Tech Stack */}
-        <div className="sheet-details-grid">
-          {/* Column 1: Engineering Highlights */}
-          <div className="details-col">
-            <div className="col-header font-mono">
-              <Terminal size={14} />
-              <span>ENGINEERING HIGHLIGHTS</span>
-            </div>
-            <ul className="sheet-bullets-list font-mono">
-              {project.architectureHighlights.map((hl, i) => (
-                <li key={i} className="bullet-row">
-                  <CheckCircle size={13} className="bullet-check" />
-                  <span>{hl}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 2: Tech Stack & Actions */}
-          <div className="details-col">
-            <div className="col-header font-mono">
-              <Database size={14} />
-              <span>PRODUCTION STACK</span>
-            </div>
-            <div className="sheet-chips-wrap">
-              {project.techStack.map(tech => (
-                <span key={tech} className="sheet-tech-chip font-mono">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="sheet-actions-row">
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ink"
-              >
-                <span>GitHub Repo</span>
-                <ArrowUpRight size={14} strokeWidth={2.4} />
-              </a>
-
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ink btn-ink-outline"
-                >
-                  <ShieldCheck size={14} />
-                  <span>Live Operations Console</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-
       </div>
     </article>
   );

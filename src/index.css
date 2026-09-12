@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 /* ==========================================================================
    SIRWAGYA.DEV — STUDIO NOTEBOOK & TACTILE SKETCHBOOK DESIGN SYSTEM
    Editorial x Tactile x Playful Handmade x AI & Full Stack Architecture
@@ -5,55 +7,56 @@
 
 :root {
   /* Surface & Canvas Tokens */
-  --desk-bg: #e8e4dc;
-  --paper-bg: #faf8f5;
+  --desk-bg: #fcfbf8;
+  --paper-bg: #fcfbf8;
   --paper-card: #ffffff;
-  --paper-card-subtle: #f5f2eb;
-  --paper-border: #18181b;
-  --paper-border-faint: rgba(24, 24, 27, 0.12);
-  --paper-ruled: rgba(24, 24, 27, 0.048);
-  --paper-grid: rgba(24, 24, 27, 0.035);
+  --paper-card-subtle: #f6f4ee;
+  --paper-border: #141416;
+  --paper-border-faint: rgba(20, 20, 22, 0.1);
+  --paper-ruled: rgba(30, 41, 59, 0.038);
 
   /* Ink Tokens */
-  --ink-primary: #18181b;
-  --ink-secondary: #52525b;
-  --ink-muted: #71717a;
-  --ink-faint: #a1a1aa;
+  --ink-primary: #121316;
+  --ink-secondary: #4b4f58;
+  --ink-muted: #6e7380;
+  --ink-faint: #9ea3ae;
 
   /* Playful Tactile Sticker / Marker Accents */
-  --sticker-yellow: #fef08a;
+  --sticker-yellow: #fde047;
   --sticker-yellow-text: #854d0e;
-  --sticker-green: #bbf7d0;
-  --sticker-green-text: #166534;
-  --sticker-pink: #fbcfe8;
-  --sticker-pink-text: #9d174d;
-  --sticker-blue: #bae6fd;
-  --sticker-blue-text: #075985;
-  --sticker-orange: #fed7aa;
+  --sticker-green: #86efac;
+  --sticker-green-text: #14532d;
+  --sticker-pink: #f472b6;
+  --sticker-pink-text: #831843;
+  --sticker-blue: #7dd3fc;
+  --sticker-blue-text: #0369a1;
+  --sticker-orange: #fdba74;
   --sticker-orange-text: #9a3412;
-  --sticker-purple: #ddd6fe;
+  --sticker-purple: #c4b5fd;
   --sticker-purple-text: #5b21b6;
   --accent-orange: #ea580c;
 
   /* Tape Colors */
-  --tape-neutral: rgba(245, 238, 220, 0.88);
-  --tape-yellow: rgba(254, 240, 138, 0.75);
+  --tape-neutral: rgba(248, 243, 228, 0.86);
+  --tape-yellow: rgba(253, 224, 71, 0.75);
   --tape-blue: rgba(186, 230, 253, 0.72);
-  --tape-pink: rgba(251, 207, 232, 0.72);
+  --tape-pink: rgba(244, 114, 182, 0.65);
 
   /* Typography */
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pixel: 'VT323', monospace;
+  --font-display: 'Anton', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-handwriting: 'Caveat', cursive, sans-serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-tech: 'Space Grotesk', -apple-system, sans-serif;
 
   /* Shadows (Tactile Offset Ink Shadows) */
-  --shadow-paper: 0 16px 48px -12px rgba(24, 24, 27, 0.12), 0 0 0 1px rgba(24, 24, 27, 0.08);
-  --shadow-card: 3px 4px 0px #18181b;
-  --shadow-card-hover: 5px 6px 0px #18181b;
-  --shadow-card-sm: 2px 2px 0px #18181b;
-  --shadow-sticker: 2px 3px 0px rgba(24, 24, 27, 0.15);
+  --shadow-paper: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  --shadow-card: 3px 4px 0px #141416;
+  --shadow-card-hover: 5px 6px 0px #141416;
+  --shadow-card-sm: 2px 2px 0px #141416;
+  --shadow-sticker: 2px 2px 0px rgba(20, 20, 22, 0.2);
 
   /* Easings */
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -61,7 +64,7 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Canvas Dimension */
-  --canvas-max-width: 1240px;
+  --canvas-max-width: 1360px;
 }
 
 /* Base Reset */
@@ -77,7 +80,7 @@ html {
 }
 
 body {
-  background-color: var(--desk-bg);
+  background-color: var(--paper-bg);
   color: var(--ink-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
@@ -95,65 +98,46 @@ body {
 
 /* ==========================================================================
    PAGE FRAME & NOTEBOOK CANVAS ARCHITECTURE
+   Seamless edge-to-edge paper surface across the entire viewport
    ========================================================================== */
 
 .page-desk-frame {
   min-height: 100vh;
   width: 100%;
-  padding: clamp(0.5rem, 3.5vw, 2.75rem);
+  padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
+  background-color: var(--paper-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    var(--paper-ruled) 32px
+  );
+  background-size: 100% 32px;
 }
 
 .notebook-sheet {
   width: 100%;
-  max-width: var(--canvas-max-width);
-  background-color: var(--paper-bg);
-  /* Subtle Notebook Ruled Lines Background */
-  background-image: 
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 27px,
-      var(--paper-ruled) 28px
-    ),
-    radial-gradient(var(--paper-grid) 1px, transparent 1px);
-  background-size: 100% 28px, 24px 24px;
-  background-position: 0 0, 12px 12px;
-  border: 1.5px solid var(--paper-border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-paper);
+  max-width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
-  transition: transform 0.25s ease;
-}
-
-/* Notebook left margin guide line (editorial red margin rule) */
-.notebook-sheet::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: clamp(2rem, 6vw, 4.5rem);
-  width: 1px;
-  background-color: rgba(239, 68, 68, 0.18);
-  pointer-events: none;
-  z-index: 1;
 }
 
 @media (max-width: 768px) {
   .page-desk-frame {
-    padding: 0.35rem;
+    padding: 0;
   }
   .notebook-sheet {
-    border-radius: 8px;
-    border-width: 1px;
-  }
-  .notebook-sheet::before {
-    display: none; /* Hide margin guide on mobile to maximize readability */
+    border: none;
+    border-radius: 0;
   }
 }
 
@@ -173,11 +157,26 @@ body {
    TYPOGRAPHY CLASSES
    ========================================================================== */
 
+.font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
 .font-display {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .font-handwriting {
@@ -351,15 +350,35 @@ body {
   color: var(--ink-primary);
 }
 
-/* Section Framing */
+/* Section Framing — Generous Editorial Whitespace */
 .notebook-section {
-  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(4.5rem, 8vw, 7.5rem) clamp(1.5rem, 5vw, 4.5rem);
   position: relative;
   border-bottom: 1.5px dashed var(--paper-border-faint);
 }
 
 .notebook-section:last-child {
   border-bottom: none;
+}
+
+/* Subtle Curved Horizon Divider */
+.curved-horizon-divider {
+  width: 100%;
+  height: 24px;
+  margin: 3rem 0 1rem;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.curved-horizon-divider svg {
+  width: 100%;
+  height: 100%;
+  stroke: rgba(20, 20, 22, 0.15);
+  stroke-width: 1;
+  fill: none;
 }
 
 /* Accessibility Focus States */

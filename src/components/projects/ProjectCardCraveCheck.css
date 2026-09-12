@@ -1,257 +1,166 @@
 /* ==========================================================================
-   NOTEBOOK PROJECT SHEET: CRAVE CHECK CSS
+   PROJECT 04: CRAVE CHECK FOLDER SHEET CSS
+   Dark Emerald Physical Sheet, Mobile Viewfinder Lens, Pipeline Strip
    ========================================================================== */
 
-.crave-scanner-board {
-  background-color: #fff7ed;
-  border: 1.5px solid var(--paper-border);
-  border-radius: 6px;
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.crave-sheet {
+  background-color: #12161a;
+  color: #f8fafc;
+  border: 1.5px solid #1e2630;
+  padding: clamp(2rem, 5vw, 3.5rem);
 }
 
-.scanner-board-header {
+.tab-emerald {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.dot-emerald {
+  background-color: #10b981 !important;
+}
+
+.link-emerald {
+  color: #34d399 !important;
+  border-color: #059669 !important;
+}
+
+.link-emerald:hover {
+  color: #6ee7b7 !important;
+  border-color: #34d399 !important;
+}
+
+/* Scanner Canvas */
+.scanner-canvas {
+  background-color: #0b0e12;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.scanner-header-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 0.5rem;
-  border-bottom: 1px dashed rgba(234, 88, 12, 0.25);
-  padding-bottom: 0.6rem;
 }
 
 .scanner-icon {
-  color: #ea580c;
+  color: #10b981;
 }
 
-/* Montage Grid */
-.scanner-montage-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 1.25rem;
-  align-items: stretch;
-}
-
-/* Viewfinder */
-.mobile-viewfinder-card {
-  background-color: #18181b;
-  border: 1.5px solid var(--paper-border);
-  border-radius: 6px;
-  padding: 0.75rem;
+.cache-hit-tag {
+  font-size: 0.65rem;
+  color: #34d399;
+  background-color: rgba(16, 185, 129, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: 3px 3px 0px var(--paper-border);
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.viewfinder-lens {
+/* Viewfinder Board */
+.scanner-viewfinder-board {
+  background-color: #161c24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.viewfinder-lens-box {
   height: 120px;
-  background-color: #090a0c;
+  background: radial-gradient(circle at center, #1e293b 0%, #090d12 100%);
   border-radius: 4px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
 }
 
-.corner-bracket {
+.viewfinder-crosshair .bracket {
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: #ea580c;
+  border-color: #10b981;
   border-style: solid;
 }
 
-.top-left {
-  top: 8px;
-  left: 8px;
-  border-width: 2px 0 0 2px;
-}
+.viewfinder-crosshair .tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+.viewfinder-crosshair .tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+.viewfinder-crosshair .bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+.viewfinder-crosshair .br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
 
-.top-right {
-  top: 8px;
-  right: 8px;
-  border-width: 2px 2px 0 0;
-}
-
-.bottom-left {
-  bottom: 8px;
-  left: 8px;
-  border-width: 0 0 2px 2px;
-}
-
-.bottom-right {
-  bottom: 8px;
-  right: 8px;
-  border-width: 0 2px 2px 0;
-}
-
-.scan-line-anim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #ea580c, transparent);
-  box-shadow: 0 0 8px #ea580c;
-  animation: scanLaser 2.5s ease-in-out infinite;
-}
-
-@keyframes scanLaser {
-  0%, 100% { top: 10%; }
-  50% { top: 90%; }
-}
-
-.label-target {
+.detected-item-pill {
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid #10b981;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  color: #ea580c;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.2rem 0.5rem;
-  border-radius: 2px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  font-weight: 700;
 }
 
-.viewfinder-footer {
+/* Nutrition & Allergen Tags */
+.detected-telemetry-row {
   display: flex;
-  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.macro-chip {
+  background-color: #0b0e12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  display: flex;
   gap: 0.4rem;
   font-size: 0.68rem;
-  color: #a1a1aa;
 }
 
-.dot-streaming {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #ea580c;
-  box-shadow: 0 0 6px #ea580c;
+.macro-label {
+  color: #94a3b8;
 }
 
-/* Nutrition Risk Card */
-.nutrition-risk-card {
-  background-color: #ffffff;
-  border: 1.5px solid var(--paper-border);
-  border-radius: 6px;
-  padding: 1rem;
+.macro-val {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.allergen-safe {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  box-shadow: 3px 3px 0px var(--paper-border);
+  align-items: center;
+  font-weight: 700;
 }
 
-.nutrition-header {
+/* Pipeline Annotation Strip */
+.scanner-pipeline-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.74rem;
-  border-bottom: 1px dashed var(--paper-border-faint);
-  padding-bottom: 0.5rem;
-}
-
-.heart-icon {
-  color: #dc2626;
-}
-
-.grade-badge {
-  background-color: #16a34a;
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-}
-
-.nutrition-stats-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.stat-pill {
-  display: flex;
-  align-items: center;
   gap: 0.4rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 3px;
-  font-size: 0.72rem;
-}
-
-.stat-pill.safe {
-  background-color: #dcfce7;
-  color: #15803d;
-}
-
-.stat-pill.warning {
-  background-color: #fef3c7;
-  color: #92400e;
-}
-
-.cache-telemetry-tag {
-  background-color: var(--paper-card-subtle);
-  border: 1px solid var(--paper-border-faint);
-  border-radius: 4px;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.7rem;
-  color: var(--ink-secondary);
-}
-
-.cache-hit {
-  color: #15803d;
-}
-
-/* Crave Flow Steps */
-.crave-flow-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.crave-step-item {
-  background-color: #ffffff;
-  border: 1px solid var(--paper-border);
-  border-radius: 4px;
-  padding: 0.65rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.step-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.num {
   font-size: 0.68rem;
+  color: #94a3b8;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pipe-step {
+  color: #e2e8f0;
   font-weight: 700;
-  color: #ea580c;
+  letter-spacing: 0.05em;
 }
 
-.name {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ink-primary);
-}
-
-.desc {
-  font-size: 0.68rem;
-  color: var(--ink-secondary);
-  line-height: 1.4;
-}
-
-.metric-tag {
-  font-size: 0.65rem;
-  color: #15803d;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .scanner-montage-grid {
-    grid-template-columns: 1fr;
-  }
+.pipe-arrow {
+  color: #10b981;
 }

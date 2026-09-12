@@ -1,10 +1,10 @@
 /* ==========================================================================
-   NOTEBOOK TOOLBAR NAVIGATION CSS
+   NOTEBOOK TOOLBAR NAVIGATION CSS (Compact, Physical, Editorial)
    ========================================================================== */
 
 .notebook-navbar-container {
   width: 100%;
-  padding: 1.25rem clamp(1rem, 3vw, 2.5rem);
+  padding: 1rem clamp(1rem, 3vw, 2.5rem) 0.5rem;
   position: relative;
   z-index: 50;
   display: flex;
@@ -13,122 +13,119 @@
 
 .notebook-navbar-container.is-sticky {
   position: sticky;
-  top: 0.75rem;
+  top: 0.5rem;
 }
 
 .notebook-toolbar {
   width: 100%;
-  max-width: 1060px;
+  max-width: 980px;
   background-color: #ffffff;
   border: 1.5px solid var(--paper-border);
-  border-radius: 8px;
-  padding: 0.5rem 0.85rem;
+  border-radius: 9999px;
+  padding: 0.3rem 0.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 3px 3px 0px var(--paper-border);
+  box-shadow: 2px 3px 0px var(--paper-border);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .notebook-toolbar:hover {
-  box-shadow: 4px 4px 0px var(--paper-border);
+  box-shadow: 3px 4px 0px var(--paper-border);
 }
 
-/* Brand Monogram */
-.toolbar-brand {
+/* Left Group */
+.toolbar-left-group {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  color: var(--ink-primary);
-  padding: 0.2rem 0.4rem;
+  gap: 0.5rem;
 }
 
-.brand-avatar-circle {
-  width: 26px;
-  height: 26px;
+.toolbar-brand-dot {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background-color: var(--ink-primary);
-  color: #ffffff;
+  background-color: #f472b6;
+  border: 1px solid var(--paper-border);
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: #121316;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 0.82rem;
-  box-shadow: 1px 1px 0px var(--accent-orange);
+  font-size: 0.72rem;
+  transition: transform 0.15s ease;
 }
 
-.brand-logo-text {
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--ink-primary);
+.toolbar-brand-dot:hover {
+  transform: scale(1.1);
 }
 
-.brand-tld {
-  color: var(--ink-muted);
-  font-weight: 500;
-}
-
-/* Center Links */
+/* Nav Links */
 .toolbar-nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .toolbar-link {
   background: transparent;
   border: none;
+  text-decoration: none;
   font-family: var(--font-tech);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--ink-secondary);
-  padding: 0.35rem 0.75rem;
-  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  position: relative;
-  transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+  gap: 0.25rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .toolbar-link:hover {
   color: var(--ink-primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-link.active-home-pill {
   background-color: var(--sticker-yellow);
-  transform: translateY(-1px);
+  color: #141416;
+  border: 1px solid var(--paper-border);
+  box-shadow: 1px 1px 0px var(--paper-border);
 }
 
 .toolbar-link.active {
   color: var(--ink-primary);
-  background-color: var(--paper-card-subtle);
-  box-shadow: inset 0 0 0 1px var(--paper-border-faint);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.toolbar-sparkle {
-  color: var(--accent-orange);
+.toolbar-star {
+  font-size: 0.75rem;
+  color: #854d0e;
 }
 
 /* Right Actions */
 .toolbar-right-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .toolbar-social-icons {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.3rem;
 }
 
-.toolbar-icon-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+.toolbar-circle-icon-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   border: 1px solid var(--paper-border-faint);
   display: flex;
   align-items: center;
@@ -139,44 +136,43 @@
   transition: all 0.15s ease;
 }
 
-.toolbar-icon-btn:hover {
+.toolbar-circle-icon-btn:hover {
   color: var(--ink-primary);
   border-color: var(--paper-border);
   background-color: var(--sticker-yellow);
   transform: translateY(-1px);
 }
 
-/* Contact Button */
-.toolbar-contact-btn {
+/* Contact Pill */
+.toolbar-contact-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  text-decoration: none;
+  gap: 0.35rem;
   background-color: var(--ink-primary);
   color: #ffffff;
   border: 1.5px solid var(--ink-primary);
-  border-radius: 4px;
-  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
   font-family: var(--font-tech);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   cursor: pointer;
-  box-shadow: 2px 2px 0px var(--accent-orange);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 1.5px 1.5px 0px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.toolbar-contact-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--accent-orange);
+.toolbar-contact-pill:hover {
+  transform: translateY(-1px);
   background-color: #000000;
 }
 
-.toolbar-contact-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0px var(--accent-orange);
+.heart-icon {
+  font-size: 0.7rem;
+  color: #f472b6;
 }
 
-/* Mobile Hamburger */
 .mobile-hamburger-btn {
   display: none;
   background: transparent;
@@ -263,6 +259,7 @@
   padding: 0.65rem 0.5rem;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 

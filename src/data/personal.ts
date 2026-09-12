@@ -9,7 +9,7 @@ export const PERSONAL = {
   links: {
     github: "https://github.com/Sirwagya",
     linkedin: "https://www.linkedin.com/in/sirwxgya/",
-    email: "sirwagyashekhar@gmail.com",
+    email: "sirwxgya@gmail.com",
     domain: "https://sirwagya.dev"
   },
   pillars: [

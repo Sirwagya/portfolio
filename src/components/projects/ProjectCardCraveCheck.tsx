@@ -1,189 +1,131 @@
 import React from 'react';
-import { ArrowUpRight, Zap, CheckCircle, Terminal, Scan, AlertTriangle, ShieldCheck, HeartPulse } from 'lucide-react';
+import { ArrowUpRight, Scan, ShieldCheck, Zap } from 'lucide-react';
 import { PROJECTS } from '../../data/projects';
 import { WashiTape } from '../notebook/WashiTape';
 import { HandwrittenNote } from '../notebook/HandwrittenNote';
-import { PaperSticker } from '../notebook/PaperSticker';
 import './ProjectCardCraveCheck.css';
 
 export const ProjectCardCraveCheck: React.FC = () => {
   const project = PROJECTS.find(p => p.id === 'crave-check')!;
 
-  const steps = [
-    { num: "01", name: "CAPTURE & HASH", desc: "Mobile client captures label photo; backend computes image hash for instant cache check.", status: "INSTANT CACHE HIT (<40ms)" },
-    { num: "02", name: "VISION OCR", desc: "Gemini Vision reads micro-ingredients and flags chemical preservatives.", status: "ACTIVE EXTRACTION" },
-    { num: "03", name: "FUZZY LOOKUP", desc: "RapidFuzz cross-references ingredients with localized nutritional databases.", status: "SUB-SECOND MATCH" },
-    { num: "04", name: "STREAMING RATING", desc: "Matches allergen hazards to user medical profile and streams warnings via NDJSON.", status: "STREAMING NDJSON" }
+  const pipeline = [
+    'IMAGE', 'VISION', 'CACHE', 'ANALYSIS', 'PERSONALIZATION'
   ];
 
   return (
-    <article className="project-sheet crave-sheet" aria-label="Crave Check Case Study">
-      {/* Decorative Washi Tape */}
-      <WashiTape color="yellow" top="-10px" left="30px" rotate={-3} width={75} />
-      <WashiTape color="pink" top="-8px" right="35px" rotate={2} width={70} />
+    <article className="project-folder-sheet crave-sheet" aria-label="Crave Check Case Study">
+      {/* Folder Tab at Top Left */}
+      <div className="folder-tab-notch tab-emerald tab-notch-04">
+        <span className="folder-tab-title font-mono">+ PROJECT 04 &bull; CRAVE CHECK</span>
+      </div>
 
-      <div className="sheet-inner">
-        {/* Top Header Stamp */}
-        <div className="sheet-top-banner">
-          <div className="sheet-badge-group">
-            <PaperSticker color="orange" rotate={-2}>
-              PROJECT // 04
-            </PaperSticker>
-            <PaperSticker color="yellow" rotate={1}>
-              STREAMING FOOD AI
-            </PaperSticker>
-            <span className="sheet-category font-mono">{project.category}</span>
+      <div className="sheet-layout-grid">
+        {/* Left Column: Vision Story */}
+        <div className="sheet-story-left">
+          <div className="sheet-meta-bullet font-mono">
+            <span className="bullet-dot dot-emerald" />
+            <span>2025 &bull; AI / COMPUTER VISION &bull; HIGH THROUGHPUT</span>
           </div>
 
-          <div className="sheet-team-pill font-mono" style={{ backgroundColor: 'var(--sticker-orange)' }}>
-            <Zap size={13} />
-            <span>TEAM KASUKABE HACKATHON PROJECT</span>
-          </div>
-        </div>
+          <h3 className="sheet-big-title font-headline">
+            Crave Check
+          </h3>
 
-        {/* Title & Tagline */}
-        <div className="sheet-title-section">
-          <div className="title-with-marginalia">
-            <h3 className="sheet-project-title font-display">
-              CRAVE CHECK
-            </h3>
-            <HandwrittenNote color="orange" size="md" rotate={-2} className="title-note">
-              "food label &amp; mobile scanning sheet"
-            </HandwrittenNote>
-          </div>
-          <p className="sheet-project-tagline font-tech" style={{ color: '#ea580c' }}>
-            {project.tagline}
+          <p className="sheet-punchy-sentence font-sans">
+            Sub-second food vision analysis delivering instant nutrition and allergen intelligence.
           </p>
-        </div>
 
-        {/* Overview */}
-        <p className="sheet-overview-text font-sans">
-          {project.overview}
-        </p>
-
-        {/* Mobile Scanner & Food Label Sheet Montage */}
-        <div className="crave-scanner-board">
-          <div className="scanner-board-header font-mono">
-            <div className="board-title">
-              <Scan size={14} className="scanner-icon" />
-              <span>PROGRESSIVE NDJSON STREAMING &bull; MULTI-TIER CACHING</span>
-            </div>
-            <HandwrittenNote color="green" size="sm" rotate={1}>
-              streaming results before AI finishes
+          <div className="sheet-marginalia-note">
+            <HandwrittenNote color="green" size="md" rotate={2}>
+              "sub-400ms cached inference"
             </HandwrittenNote>
           </div>
 
-          <div className="scanner-montage-grid">
-            {/* Left: Mobile Viewfinder Frame */}
-            <div className="mobile-viewfinder-card">
-              <div className="viewfinder-lens">
-                <div className="corner-bracket top-left" />
-                <div className="corner-bracket top-right" />
-                <div className="corner-bracket bottom-left" />
-                <div className="corner-bracket bottom-right" />
-
-                <div className="viewfinder-reticle">
-                  <div className="scan-line-anim" />
-                  <span className="font-mono label-target">SCANNING INGREDIENTS...</span>
-                </div>
-              </div>
-
-              <div className="viewfinder-footer font-mono">
-                <span className="dot-streaming" />
-                <span>NDJSON STREAM CHUNK #3 RECEIVED</span>
-              </div>
-            </div>
-
-            {/* Right: Nutrition & Allergen Risk Score Card */}
-            <div className="nutrition-risk-card font-mono">
-              <div className="nutrition-header">
-                <HeartPulse size={14} className="heart-icon" />
-                <span className="font-bold">HEALTH RATING REPORT</span>
-                <span className="grade-badge">GRADE B+</span>
-              </div>
-
-              <div className="nutrition-stats-row">
-                <div className="stat-pill safe">
-                  <ShieldCheck size={12} />
-                  <span>Gluten Free</span>
-                </div>
-                <div className="stat-pill safe">
-                  <ShieldCheck size={12} />
-                  <span>No High Fructose Corn Syrup</span>
-                </div>
-                <div className="stat-pill warning">
-                  <AlertTriangle size={12} />
-                  <span>Emulsifier (E471) Detected</span>
-                </div>
-              </div>
-
-              <div className="cache-telemetry-tag">
-                <span className="cache-hit font-bold">&check; CACHE HIT:</span>
-                <span> MongoDB Hash Store (Response latency: 38ms)</span>
-              </div>
-            </div>
+          <div className="sheet-actions-row">
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sheet-cta-link link-emerald font-tech"
+            >
+              <span>VIEW REPOSITORY &amp; BENCHMARKS</span>
+              <ArrowUpRight size={16} />
+            </a>
           </div>
 
-          {/* Pipeline Flow Steps */}
-          <div className="crave-flow-steps font-mono">
-            {steps.map((st) => (
-              <div key={st.num} className="crave-step-item">
-                <div className="step-badge">
-                  <span className="num">{st.num}</span>
-                  <span className="name font-tech">{st.name}</span>
-                </div>
-                <p className="desc">{st.desc}</p>
-                <span className="metric-tag">{st.status}</span>
-              </div>
-            ))}
+          <div className="sheet-tech-footer font-mono">
+            <span>CORE STACK: Python &bull; FastAPI &bull; Gemini 1.5 Flash &bull; Redis Cache &bull; Next.js</span>
           </div>
         </div>
 
-        {/* Engineering Highlights & Tech Stack */}
-        <div className="sheet-details-grid">
-          <div className="details-col">
-            <div className="col-header font-mono">
-              <Terminal size={14} />
-              <span>PERFORMANCE ENGINEERING</span>
-            </div>
-            <ul className="sheet-bullets-list font-mono">
-              {project.architectureHighlights.map((hl, i) => (
-                <li key={i} className="bullet-row">
-                  <CheckCircle size={13} className="bullet-check" style={{ color: '#ea580c' }} />
-                  <span>{hl}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Right Column: ONE Large Taped Mobile Food Scanner Board */}
+        <div className="sheet-visual-right">
+          <div className="taped-visual-canvas scanner-canvas">
+            {/* Washi Tapes on Corners */}
+            <WashiTape color="yellow" top="-10px" left="-10px" rotate={-45} width={60} />
+            <WashiTape color="yellow" top="-10px" right="-10px" rotate={45} width={60} />
+            <WashiTape color="yellow" bottom="-10px" left="-10px" rotate={45} width={60} />
+            <WashiTape color="yellow" bottom="-10px" right="-10px" rotate={-45} width={60} />
 
-          <div className="details-col">
-            <div className="col-header font-mono">
-              <Zap size={14} />
-              <span>PRODUCTION STACK</span>
-            </div>
-            <div className="sheet-chips-wrap">
-              {project.techStack.map(tech => (
-                <span key={tech} className="sheet-tech-chip font-mono">
-                  {tech}
-                </span>
-              ))}
+            <div className="canvas-header font-mono">
+              <div className="scanner-header-left">
+                <Scan size={14} className="scanner-icon" />
+                <span className="canvas-title">REAL-TIME MULTIMODAL INGESTION</span>
+              </div>
+              <span className="cache-hit-tag font-mono">
+                <Zap size={11} /> 94% CACHE HIT
+              </span>
             </div>
 
-            <div className="sheet-actions-row">
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ink"
-                style={{ boxShadow: '3px 3px 0px #ea580c' }}
-              >
-                <span>GitHub Repo</span>
-                <ArrowUpRight size={14} strokeWidth={2.4} />
-              </a>
+            {/* Mobile Viewfinder Representation */}
+            <div className="scanner-viewfinder-board">
+              <div className="viewfinder-lens-box">
+                <div className="viewfinder-crosshair">
+                  <span className="bracket tl" />
+                  <span className="bracket tr" />
+                  <span className="bracket bl" />
+                  <span className="bracket br" />
+                </div>
+
+                <div className="detected-item-pill font-mono">
+                  <span>DETECTED: MEDITERRANEAN QUINOA BOWL</span>
+                </div>
+              </div>
+
+              {/* Nutrition & Allergen Tags */}
+              <div className="detected-telemetry-row font-mono">
+                <div className="macro-chip">
+                  <span className="macro-label">CALORIES</span>
+                  <span className="macro-val">520 KCAL</span>
+                </div>
+                <div className="macro-chip">
+                  <span className="macro-label">PROTEIN</span>
+                  <span className="macro-val">24G</span>
+                </div>
+                <div className="macro-chip allergen-safe">
+                  <ShieldCheck size={12} />
+                  <span>GLUTEN FREE</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pipeline Step Annotation Strip */}
+            <div className="scanner-pipeline-strip font-mono">
+              {pipeline.map((p, idx) => (
+                <React.Fragment key={p}>
+                  <span className="pipe-step">{p}</span>
+                  {idx < pipeline.length - 1 && <span className="pipe-arrow">&rarr;</span>}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <div className="canvas-footer font-handwriting">
+              <span style={{ color: '#86efac', fontSize: '1.25rem' }}>
+                "instant macro &amp; allergen safety at point-of-sale"
+              </span>
             </div>
           </div>
         </div>
-
       </div>
     </article>
   );

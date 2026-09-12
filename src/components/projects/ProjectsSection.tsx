@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ProjectCardNexora } from './ProjectCardNexora';
-import { ProjectCardOnceUponMe } from './ProjectCardOnceUponMe';
-import { ProjectCardCampusConnect } from './ProjectCardCampusConnect';
-import { ProjectCardCraveCheck } from './ProjectCardCraveCheck';
+import { ArrowUpRight } from 'lucide-react';
+import { ALL_PROJECTS } from './projectData';
+import { NexoraCollage, OnceUponMeCollage, CampusConnectCollage, VoltCraveCollage } from './ProjectCollages';
 import { HandwrittenNote } from '../notebook/HandwrittenNote';
 import { DoodleArrow } from '../notebook/DoodleDrawn';
 import './ProjectsSection.css';
@@ -14,20 +13,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const ProjectsSection: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
-  const [activeTab, setActiveTab] = useState<number>(0); // 0, 1, 2, 3
-  const [viewMode, setViewMode] = useState<'focused' | 'all'>('focused');
 
-  const projectsMeta = [
-    { id: 'nexora', num: '01', title: 'NEXORA AI', category: 'AI & Rust Architecture', color: 'yellow' },
-    { id: 'onceuponme', num: '02', title: 'ONCEUPONME', category: 'Media & Video Engine', color: 'pink' },
-    { id: 'campus', num: '03', title: 'CAMPUS CONNECT', category: 'Full Stack Campus OS', color: 'blue' },
-    { id: 'crave', num: '04', title: 'CRAVE CHECK', category: 'Vision & Fast Caching', color: 'orange' }
-  ];
-
+  // Section Header Entrance Animation
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    gsap.from('.projects-header-item', {
+    gsap.from('.projects-header-anim', {
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',
@@ -40,115 +31,165 @@ export const ProjectsSection: React.FC = () => {
     });
   }, { scope: containerRef });
 
-  const handleTabChange = (index: number) => {
-    setActiveTab(index);
-    if (viewMode === 'all') {
-      const elementId = `project-${projectsMeta[index].id}`;
-      const el = document.getElementById(elementId);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
-    <section id="work" ref={containerRef} className="notebook-section projects-notebook-section" aria-label="Featured Engineering Projects">
-      <div className="projects-content-wrapper">
+    <section
+      id="work"
+      ref={containerRef}
+      className="notebook-section projects-notebook-section"
+      aria-label="Selected Engineering Work"
+    >
+      <div className="projects-editorial-wrapper">
 
-        {/* Section Header: Handwritten label + Large Title */}
-        <div className="projects-header-block projects-header-item">
-          <div className="projects-annotation-row">
+        {/* Section Header */}
+        <div className="projects-editorial-header projects-header-anim">
+          <div className="projects-handwritten-badge">
             <HandwrittenNote color="blue" size="xl" rotate={-2}>
               case studies
             </HandwrittenNote>
-            <DoodleArrow direction="right" color="#2563eb" width={38} height={20} className="projects-arrow" />
-            <span className="projects-count-badge font-mono">4 PRODUCTION SYSTEMS</span>
+            <DoodleArrow
+              direction="right"
+              color="#2563eb"
+              width={36}
+              height={18}
+              className="projects-arrow"
+            />
           </div>
 
-          <h2 className="projects-main-heading font-display">
-            SELECTED WORK.
-          </h2>
+          <div className="projects-headline-row">
+            <h2 className="projects-main-headline font-display">
+              SELECTED WORK.
+            </h2>
+          </div>
 
-          <p className="projects-subtext font-sans">
-            Detailed engineering case studies: architecture blueprints, data pipelines,
-            system invariants, and verified repositories.
+          <p className="projects-sub-tagline font-sans">
+            Four production systems spanning distributed AI pipelines, creative media engines, and high-throughput products.
           </p>
         </div>
 
-        {/* Project Navigation Tabs (Physical Tab Switcher) */}
-        <div className="project-tabs-toolbar projects-header-item">
-          <div className="tabs-button-cluster" role="tablist" aria-label="Case Study Tabs">
-            {projectsMeta.map((p, idx) => {
-              const isActive = activeTab === idx;
-              return (
-                <button
-                  key={p.id}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => handleTabChange(idx)}
-                  className={`project-tab-btn tab-color-${p.color} ${isActive ? 'is-active' : ''}`}
-                >
-                  <span className="tab-num font-mono">{p.num}</span>
-                  <span className="tab-title font-tech">{p.title}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="view-toggle-wrap">
-            <button
-              onClick={() => setViewMode(viewMode === 'focused' ? 'all' : 'focused')}
-              className="view-toggle-btn font-mono"
+        {/* Sticky Card Stack Deck */}
+        <div className="sticky-sheets-stack">
+          {ALL_PROJECTS.map((proj, idx) => (
+            <div
+              key={proj.id}
+              id={`project-card-${proj.number}`}
+              className="sticky-sheet-card"
+              style={{ zIndex: (idx + 1) * 10 }}
             >
-              {viewMode === 'focused' ? 'SHOW ALL 4' : 'FOCUS TAB VIEW'}
-            </button>
-          </div>
-        </div>
-
-        {/* Project Sheets Showcase */}
-        <div className="projects-sheets-deck">
-          {viewMode === 'focused' ? (
-            <div className="focused-project-wrapper">
-              {activeTab === 0 && <ProjectCardNexora />}
-              {activeTab === 1 && <ProjectCardOnceUponMe />}
-              {activeTab === 2 && <ProjectCardCampusConnect />}
-              {activeTab === 3 && <ProjectCardCraveCheck />}
-
-              {/* Quick Next/Prev Project Switcher */}
-              <div className="project-sheet-pagination">
+              {/* Tab Bar: only renders THIS card's tab notch at its progressive offset */}
+              <div className="sticky-card-tab-bar">
                 <button
-                  disabled={activeTab === 0}
-                  onClick={() => setActiveTab(activeTab - 1)}
-                  className="pagination-btn font-tech"
+                  type="button"
+                  aria-label={`Scroll to ${proj.title}`}
+                  onClick={() => {
+                    const el = document.getElementById(`project-card-${proj.number}`);
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className={`sticky-tab-notch tab-notch-${idx}`}
+                  style={{
+                    backgroundColor: proj.theme.bg,
+                    color: proj.number === '01' || proj.number === '02' ? '#ffffff' : '#141416'
+                  }}
                 >
-                  &larr; PREVIOUS CASE
-                </button>
-                <span className="pagination-count font-mono">
-                  {activeTab + 1} OF 4
-                </span>
-                <button
-                  disabled={activeTab === 3}
-                  onClick={() => setActiveTab(activeTab + 1)}
-                  className="pagination-btn font-tech"
-                >
-                  NEXT CASE &rarr;
+                  <span className="sticky-tab-star" aria-hidden="true">✦</span>
+                  <span className="sticky-tab-label font-mono">PROJECT {proj.number}</span>
                 </button>
               </div>
+
+              {/* Main Physical Card Sheet */}
+              <article
+                className={`sticky-card-sheet sheet-theme-${proj.id}`}
+                style={{
+                  backgroundColor: proj.theme.bg,
+                  color: proj.theme.textColor
+                }}
+                aria-label={`${proj.title} Case Study`}
+              >
+                {/* Left Column: Project Editorial Story */}
+                <div className="sticky-sheet-left">
+                  {/* Metadata: Date */}
+                  <div
+                    className="sticky-meta-eyebrow font-mono"
+                    style={{ color: proj.theme.metaColor }}
+                  >
+                    <span
+                      className="sticky-meta-bullet"
+                      style={{ backgroundColor: proj.theme.textColor }}
+                    />
+                    <span className="sticky-date-text">{proj.date}</span>
+                  </div>
+
+                  {/* Clean Project Title */}
+                  <h3 className="sticky-sheet-title font-headline">
+                    {proj.title}
+                  </h3>
+
+                  {/* 1-2 line description */}
+                  <p
+                    className="sticky-sheet-tagline font-sans"
+                    style={{ color: proj.theme.textColor }}
+                  >
+                    {proj.tagline}
+                  </p>
+
+                  {/* Underlined CTA Link */}
+                  <div className="sticky-cta-row">
+                    <a
+                      href={proj.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sticky-primary-link font-mono"
+                      style={{
+                        color: proj.theme.textColor,
+                        borderColor: proj.theme.textColor
+                      }}
+                    >
+                      <span>VIEW PROJECT</span>
+                      <ArrowUpRight size={17} strokeWidth={2.4} />
+                    </a>
+                  </div>
+
+                  {/* Black Cut-Corner Tags */}
+                  <div className="sticky-tags-row">
+                    {proj.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="sticky-cut-tag font-mono"
+                        style={{
+                          backgroundColor: proj.theme.tagBg,
+                          color: proj.theme.tagColor
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Column: Framed Showcase with Washi Tape */}
+                <div className="sticky-sheet-right">
+                  <div
+                    className="sticky-showcase-board"
+                    style={{ backgroundColor: proj.theme.frameBg }}
+                  >
+                    {/* Washi Tape Corner Accents */}
+                    <span className="sticky-washi-tape tape-corner-left" aria-hidden="true" />
+                    <span className="sticky-washi-tape tape-corner-right" aria-hidden="true" />
+
+                    {/* Authentic Quad Phone Collage */}
+                    {proj.id === 'nexora-ai' && <NexoraCollage />}
+                    {proj.id === 'onceuponme' && <OnceUponMeCollage />}
+                    {proj.id === 'campus-connect' && <CampusConnectCollage />}
+                    {proj.id === 'crave-check' && <VoltCraveCollage />}
+                  </div>
+                </div>
+              </article>
             </div>
-          ) : (
-            <div className="all-stacked-projects">
-              <div id="project-nexora" className="stacked-sheet-item">
-                <ProjectCardNexora />
-              </div>
-              <div id="project-onceuponme" className="stacked-sheet-item">
-                <ProjectCardOnceUponMe />
-              </div>
-              <div id="project-campus" className="stacked-sheet-item">
-                <ProjectCardCampusConnect />
-              </div>
-              <div id="project-crave" className="stacked-sheet-item">
-                <ProjectCardCraveCheck />
-              </div>
-            </div>
-          )}
+          ))}
+
+          {/* Sticky Deck Runway: gives Card 04 room to stay pinned in perfect alignment before exiting */}
+          <div className="sticky-deck-runway" aria-hidden="true" />
         </div>
 
       </div>

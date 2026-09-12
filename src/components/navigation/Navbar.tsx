@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { PERSONAL } from '../../data/personal';
 import { GithubIcon, LinkedinIcon } from '../ui/Icons';
 import './Navbar.css';
@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 45);
 
-      const sections = ['hero', 'about', 'work', 'playground', 'contact'];
+      const sections = ['hero', 'about', 'work', 'dsa', 'contact'];
       const current = sections.find(section => {
         const el = document.getElementById(section);
         if (el) {
@@ -31,6 +31,10 @@ export const Navbar: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -41,76 +45,85 @@ export const Navbar: React.FC = () => {
     <>
       <header className={`notebook-navbar-container ${scrolled ? 'is-sticky' : ''}`}>
         <nav className="notebook-toolbar" aria-label="Main Navigation">
-          {/* Left: Circular Monogram + Brand */}
-          <a
-            href="#hero"
-            onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
-            className="toolbar-brand"
-            aria-label="Sirwagya Shekhar Home"
-          >
-            <span className="brand-avatar-circle" aria-hidden="true">S</span>
-            <span className="brand-logo-text font-tech">SIRWAGYA<span className="brand-tld">.DEV</span></span>
-          </a>
+          {/* Left: Monogram Mark + Nav Links */}
+          <div className="toolbar-left-group">
+            <a
+              href="#hero"
+              onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
+              className="toolbar-brand-dot"
+              aria-label="Sirwagya Shekhar"
+            >
+              <span className="brand-dot-inner">S</span>
+            </a>
 
-          {/* Center Links (Physical Toolbar style) */}
-          <div className="toolbar-nav-links">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className={`toolbar-link ${activeSection === 'hero' ? 'active' : ''}`}
-            >
-              HOME
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className={`toolbar-link ${activeSection === 'about' ? 'active' : ''}`}
-            >
-              ABOUT
-            </button>
-            <button
-              onClick={() => scrollToSection('work')}
-              className={`toolbar-link ${activeSection === 'work' ? 'active' : ''}`}
-            >
-              CASE STUDIES
-            </button>
-            <button
-              onClick={() => scrollToSection('playground')}
-              className={`toolbar-link ${activeSection === 'playground' ? 'active' : ''}`}
-            >
-              <Sparkles size={12} className="toolbar-sparkle" />
-              PLAYGROUND
-            </button>
+            <div className="toolbar-nav-links">
+              <a
+                href="#hero"
+                onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
+                className={`toolbar-link ${activeSection === 'hero' ? 'active-home-pill' : ''}`}
+                aria-label="Navigate to Home section"
+              >
+                <span className="toolbar-star">★</span> HOME
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
+                className={`toolbar-link ${activeSection === 'about' ? 'active' : ''}`}
+                aria-label="Navigate to About section"
+              >
+                ABOUT
+              </a>
+              <a
+                href="#work"
+                onClick={(e) => { e.preventDefault(); scrollToSection('work'); }}
+                className={`toolbar-link ${activeSection === 'work' ? 'active' : ''}`}
+                aria-label="Navigate to Selected Work section"
+              >
+                CASE STUDY
+              </a>
+              <a
+                href="#dsa"
+                onClick={(e) => { e.preventDefault(); scrollToSection('dsa'); }}
+                className={`toolbar-link ${activeSection === 'dsa' ? 'active' : ''}`}
+                aria-label="Navigate to DSA Journey section"
+              >
+                DSA JOURNEY
+              </a>
+            </div>
           </div>
 
-          {/* Right: Social icons + Contact Button */}
+          {/* Right: Circular Social Icons + Contact Pill */}
           <div className="toolbar-right-actions">
             <div className="toolbar-social-icons">
               <a
                 href={PERSONAL.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="toolbar-icon-btn"
+                className="toolbar-circle-icon-btn"
                 aria-label="Sirwagya's GitHub Profile"
               >
-                <GithubIcon size={15} />
+                <GithubIcon size={12} />
               </a>
               <a
                 href={PERSONAL.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="toolbar-icon-btn"
+                className="toolbar-circle-icon-btn"
                 aria-label="Sirwagya's LinkedIn Profile"
               >
-                <LinkedinIcon size={15} />
+                <LinkedinIcon size={12} />
               </a>
             </div>
 
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="toolbar-contact-btn"
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+              className="toolbar-contact-pill"
+              aria-label="Navigate to Contact section"
             >
+              <span className="heart-icon">♥</span>
               <span>CONTACT</span>
-              <ArrowUpRight size={13} strokeWidth={2.5} />
-            </button>
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -119,7 +132,7 @@ export const Navbar: React.FC = () => {
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
           </div>
         </nav>
@@ -130,7 +143,7 @@ export const Navbar: React.FC = () => {
         <div className="mobile-drawer-sheet">
           <div className="mobile-drawer-header">
             <span className="font-handwriting" style={{ fontSize: '1.4rem', color: '#2563eb' }}>
-              index & navigation
+              index &amp; navigation
             </span>
             <button
               onClick={() => setMobileMenuOpen(false)}
@@ -142,26 +155,46 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="mobile-drawer-nav">
-            <button onClick={() => scrollToSection('hero')} className="mobile-nav-row">
+            <a
+              href="#hero"
+              onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
+              className="mobile-nav-row"
+            >
               <span className="mobile-row-idx font-mono">01</span>
               <span className="mobile-row-title font-tech">HOME</span>
-            </button>
-            <button onClick={() => scrollToSection('about')} className="mobile-nav-row">
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
+              className="mobile-nav-row"
+            >
               <span className="mobile-row-idx font-mono">02</span>
               <span className="mobile-row-title font-tech">ABOUT ME</span>
-            </button>
-            <button onClick={() => scrollToSection('work')} className="mobile-nav-row">
+            </a>
+            <a
+              href="#work"
+              onClick={(e) => { e.preventDefault(); scrollToSection('work'); }}
+              className="mobile-nav-row"
+            >
               <span className="mobile-row-idx font-mono">03</span>
               <span className="mobile-row-title font-tech">CASE STUDIES (4)</span>
-            </button>
-            <button onClick={() => scrollToSection('playground')} className="mobile-nav-row">
+            </a>
+            <a
+              href="#dsa"
+              onClick={(e) => { e.preventDefault(); scrollToSection('dsa'); }}
+              className="mobile-nav-row"
+            >
               <span className="mobile-row-idx font-mono">04</span>
-              <span className="mobile-row-title font-tech">PLAYGROUND</span>
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="mobile-nav-row">
+              <span className="mobile-row-title font-tech">DSA JOURNEY</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+              className="mobile-nav-row"
+            >
               <span className="mobile-row-idx font-mono">05</span>
               <span className="mobile-row-title font-tech">SAY HI / CONTACT</span>
-            </button>
+            </a>
           </div>
 
           <div className="mobile-drawer-footer">

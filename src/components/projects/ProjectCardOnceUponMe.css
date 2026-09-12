@@ -1,187 +1,158 @@
 /* ==========================================================================
-   NOTEBOOK PROJECT SHEET: ONCEUPONME VIDEO ENGINE CSS
+   PROJECT 02: ONCEUPONME FOLDER SHEET CSS
+   Vibrant Yellow Physical Sheet, Film Sprocket Frame, Storyboard Timeline
    ========================================================================== */
 
-.sheet-solo-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: var(--sticker-pink);
-  color: var(--ink-primary);
-  border: 1px solid var(--paper-border);
-  border-radius: 4px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+.onceuponme-sheet {
+  background-color: #fde047;
+  color: #141416;
+  border: 1.5px solid #141416;
+  padding: clamp(2rem, 5vw, 3.5rem);
 }
 
-/* Filmstrip Board */
-.filmstrip-board {
+.tab-yellow {
+  background-color: #eab308;
+  color: #141416;
+  border: 1.5px solid #141416;
+  border-bottom: none;
+}
+
+.text-dark {
+  color: #141416 !important;
+}
+
+.dot-orange {
+  background-color: #ea580c !important;
+}
+
+.link-dark {
+  color: #141416 !important;
+  border-color: #141416 !important;
+}
+
+.link-dark:hover {
+  color: #ea580c !important;
+  border-color: #ea580c !important;
+}
+
+.border-dark {
+  border-color: rgba(20, 20, 22, 0.2) !important;
+  color: #713f12 !important;
+}
+
+/* Film Storyboard Canvas */
+.film-storyboard-canvas {
   background-color: #18181b;
-  color: #ffffff;
-  border: 2px solid var(--paper-border);
+  border: 1.5px solid #141416;
   border-radius: 6px;
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: 4px 4px 0px rgba(24, 24, 27, 0.15);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
-.filmstrip-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-  padding-bottom: 0.6rem;
-}
-
-.filmstrip-title {
+.film-header-left {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  color: #ffffff;
 }
 
 .film-icon {
-  color: #f472b6;
+  color: #f97316;
 }
 
-/* Filmstrip Track with Sprockets */
-.filmstrip-track-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  background-color: #090a0c;
+.text-light {
+  color: #f8fafc !important;
+}
+
+.film-fps-tag {
+  font-size: 0.65rem;
+  color: #fde047;
+  background-color: rgba(253, 224, 71, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(253, 224, 71, 0.3);
+}
+
+/* 35mm Film Strip Sprocket Frame */
+.film-sprocket-frame {
+  background-color: #09090b;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 4px;
-  padding: 0.75rem 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
 }
 
-.sprocket-holes {
+.sprocket-holes-row {
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5rem;
+  padding: 4px 0;
 }
 
-.sprocket {
-  width: 10px;
-  height: 6px;
+.sprocket-holes-row span {
+  width: 14px;
+  height: 9px;
   background-color: #27272a;
-  border-radius: 1px;
+  border-radius: 2px;
+  display: inline-block;
 }
 
-.film-frames-row {
-  display: flex;
-  gap: 0.6rem;
-  overflow-x: auto;
-  padding: 0.4rem 0.2rem;
-}
-
-.film-frame-card {
-  background-color: #18181b;
-  border: 1.5px solid #3f3f46;
+.cinematic-preview-box {
+  height: 140px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #431407 100%);
   border-radius: 4px;
-  padding: 0.4rem;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  min-width: 140px;
-  text-align: left;
-  transition: all 0.15s ease;
-}
-
-.film-frame-card:hover {
-  border-color: #f472b6;
-  transform: translateY(-2px);
-}
-
-.film-frame-card.frame-selected {
-  border-color: #f472b6;
-  box-shadow: 0 0 0 2px #f472b6;
-  background-color: #27272a;
-}
-
-.frame-screen {
-  width: 100%;
-  height: 60px;
-  background-color: #27272a;
-  border-radius: 2px;
+  justify-content: space-between;
+  padding: 1rem;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-.frame-play-overlay {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.6);
+.preview-overlay-info {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-left: 2px;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.08em;
 }
 
-.frame-timestamp {
-  position: absolute;
-  bottom: 3px;
-  right: 4px;
+.preview-timecode {
+  font-size: 0.68rem;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+}
+
+/* Storyboard Timeline Bar */
+.storyboard-timeline-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.timeline-stage-chip {
+  background-color: #27272a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stage-num {
   font-size: 0.65rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 0.1rem 0.3rem;
-  border-radius: 2px;
-  color: #f472b6;
+  color: #fde047;
+  font-weight: 700;
 }
 
-.frame-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.frame-label {
+.stage-name {
   font-size: 0.72rem;
   font-weight: 700;
   color: #ffffff;
-}
-
-.frame-score {
-  font-size: 0.65rem;
-  color: #a1a1aa;
-}
-
-/* Inspector Panel */
-.frame-inspector-panel {
-  background-color: #ffffff;
-  color: var(--ink-primary);
-  border-radius: 4px;
-  padding: 0.85rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.inspector-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-}
-
-.inspector-stage {
-  color: #db2777;
-}
-
-.inspector-tool {
-  color: var(--ink-muted);
-  font-size: 0.72rem;
 }

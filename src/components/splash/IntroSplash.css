@@ -1,0 +1,63 @@
+/* ==========================================================================
+   INTRO SPLASH SCREEN PRELOADER CSS
+   Speech-bubble badge, staggered letter GSAP animation, ruled paper curtain
+   ========================================================================== */
+
+.intro-splash-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper-bg, #fcfbf8);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    rgba(30, 41, 59, 0.075) 32px
+  );
+  background-size: 100% 32px;
+  user-select: none;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.intro-splash-center {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  position: relative;
+}
+
+/* Yellow Speech-Bubble Pill matching reference */
+.intro-splash-badge {
+  grid-column: 1;
+  grid-row: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fde047;
+  border: 2px solid #141416;
+  border-radius: 0 18px 18px 18px;
+  padding: clamp(0.75rem, 1.8vw, 0.95rem) clamp(1.4rem, 3vw, 2rem);
+  box-shadow: 2px 3px 0px #141416;
+  font-family: var(--font-tech, 'Space Grotesk', -apple-system, sans-serif);
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-weight: 600;
+  color: #141416;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.splash-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}

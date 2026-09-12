@@ -1,0 +1,21 @@
+{
+  "name": "Sirwagya Shekhar — Full Stack & AI Developer",
+  "short_name": "Sirwagya",
+  "description": "Sirwagya Shekhar is a full-stack and AI developer building intelligent products, backend systems, and polished digital experiences.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAF8F5",
+  "theme_color": "#FAF8F5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
