@@ -8,19 +8,24 @@ import { NowSection } from './components/now/NowSection';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/footer/Footer';
 import { IntroSplash } from './components/splash/IntroSplash';
+import { NotFound } from './components/error/NotFound';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const App: React.FC = () => {
-  const [isSplashComplete, setIsSplashComplete] = useState(false);
+  const [isSplashComplete, setIsSplashComplete] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return true;
+    }
+    return false;
+  });
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const isNotFound = pathname !== '/' && pathname !== '/index.html';
 
   useEffect(() => {
-    // If reduced-motion is requested, complete immediately
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setIsSplashComplete(true);
-    }
+    if (isNotFound) return;
 
     // Refresh ScrollTrigger after initial mount and font load
     const timer = setTimeout(() => {
@@ -28,12 +33,27 @@ export const App: React.FC = () => {
     }, 250);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isNotFound]);
 
   const handleSplashComplete = () => {
     setIsSplashComplete(true);
     ScrollTrigger.refresh();
   };
+
+  if (isNotFound) {
+    return (
+      <div className="page-desk-frame">
+        <div className="notebook-grain" aria-hidden="true" />
+        <div className="notebook-sheet">
+          <Navbar />
+          <main id="main-content">
+            <NotFound />
+          </main>
+          <Footer />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page-desk-frame">

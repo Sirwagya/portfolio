@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404: Page Not Found — Sirwagya Shekhar</title>
+    <meta name="title" content="404: Page Not Found — Sirwagya Shekhar" />
+    <meta name="description" content="The page you were looking for could not be found in Sirwagya Shekhar's engineering portfolio." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#FAF8F5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Caveat:wght@600;700&amp;family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Space+Grotesk:wght@600;700&amp;family=VT323&amp;display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --desk-bg: #fcfbf8;
+        --paper-bg: #fcfbf8;
+        --paper-card: #ffffff;
+        --paper-border: #141416;
+        --paper-border-faint: rgba(20, 20, 22, 0.1);
+        --ink-primary: #121316;
+        --ink-secondary: #4b4f58;
+        --ink-muted: #6e7380;
+        --sticker-yellow: #fde047;
+        --sticker-blue: #7dd3fc;
+        --sticker-pink: #f472b6;
+        --accent-orange: #ea580c;
+        --tape-yellow: rgba(253, 224, 71, 0.75);
+        --tape-blue: rgba(186, 230, 253, 0.72);
+        --tape-pink: rgba(244, 114, 182, 0.65);
+        --font-pixel: 'VT323', monospace;
+        --font-display: 'Anton', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-headline: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+        --font-handwriting: 'Caveat', cursive, sans-serif;
+        --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+        --font-tech: 'Space Grotesk', -apple-system, sans-serif;
+        --shadow-card: 3px 4px 0px #141416;
+        --shadow-card-hover: 5px 6px 0px #141416;
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--desk-bg);
+        color: var(--ink-primary);
+        font-family: var(--font-sans);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 1rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Subtle ruled line backdrop */
+      body {
+        background-image: repeating-linear-gradient(
+          transparent,
+          transparent 27px,
+          rgba(30, 41, 59, 0.04) 28px
+        );
+      }
+
+      .notfound-container {
+        width: 100%;
+        max-width: 580px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+
+      /* Top Monogram Header */
+      .notfound-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--ink-primary);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 0.95rem;
+        border: 2px solid var(--paper-border);
+        box-shadow: 2px 2px 0px var(--paper-border);
+      }
+
+      .brand-name {
+        font-family: var(--font-tech);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        color: var(--ink-primary);
+        text-transform: uppercase;
+      }
+
+      /* Main Physical Card Sheet */
+      .notfound-card {
+        width: 100%;
+        background: #ffffff;
+        border: 2px solid var(--paper-border);
+        border-radius: 8px;
+        padding: 2.75rem 2rem 2.25rem;
+        position: relative;
+        box-shadow: var(--shadow-card);
+        text-align: center;
+        transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
+      }
+
+      /* Washi Tape Corner Accents */
+      .washi-tape-accent {
+        position: absolute;
+        height: 22px;
+        width: 76px;
+        backdrop-filter: blur(2px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .tape-tl {
+        top: -11px;
+        left: 20px;
+        background: var(--tape-yellow);
+        transform: rotate(-3.5deg);
+      }
+
+      .tape-tr {
+        top: -9px;
+        right: 20px;
+        background: var(--tape-blue);
+        transform: rotate(3deg);
+      }
+
+      /* Status Pill */
+      .notfound-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #f1f5f9;
+        border: 1px solid var(--paper-border);
+        border-radius: 9999px;
+        padding: 4px 12px;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--ink-primary);
+        margin-bottom: 1.25rem;
+      }
+
+      .status-pulse {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #ef4444;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+      }
+
+      /* 404 Stamp Display */
+      .notfound-code {
+        font-family: var(--font-display);
+        font-size: clamp(5.5rem, 18vw, 8rem);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+        color: var(--ink-primary);
+        text-shadow: 4px 4px 0px #e2e8f0;
+        margin-bottom: 0.5rem;
+        user-select: none;
+      }
+
+      /* Handwritten Annotation */
+      .notfound-handwritten {
+        font-family: var(--font-handwriting);
+        font-size: 1.6rem;
+        color: var(--accent-orange);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        display: block;
+        transform: rotate(-1.5deg);
+      }
+
+      .notfound-body {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--ink-secondary);
+        max-width: 420px;
+        margin: 0 auto 2rem;
+        line-height: 1.55;
+      }
+
+      /* CTA Actions */
+      .notfound-cta-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+      }
+
+      .primary-home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        background: var(--ink-primary);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.65rem 1.4rem;
+        border: 2px solid var(--paper-border);
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        box-shadow: var(--shadow-card);
+        transition: transform 0.18s var(--ease-spring), box-shadow 0.18s ease;
+      }
+
+      .primary-home-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-card-hover);
+        color: #ffffff;
+      }
+
+      .btn-arrow-box {
+        width: 22px;
+        height: 22px;
+        background: #ffffff;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-primary);
+      }
+
+      /* Section Recovery Directory */
+      .notfound-directory {
+        width: 100%;
+        border-top: 1px dashed var(--paper-border-faint);
+        padding-top: 1.5rem;
+      }
+
+      .directory-label {
+        font-family: var(--font-tech);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--ink-muted);
+        text-transform: uppercase;
+        margin-bottom: 0.85rem;
+      }
+
+      .directory-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .directory-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 11px;
+        background: #ffffff;
+        border: 1px solid var(--paper-border);
+        border-radius: 4px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--ink-primary);
+        text-decoration: none;
+        box-shadow: 1.5px 2px 0px rgba(20, 20, 22, 0.15);
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+
+      .directory-pill:hover {
+        background-color: var(--sticker-yellow);
+        transform: translateY(-1px);
+      }
+
+      .pill-num {
+        color: var(--ink-muted);
+        font-size: 0.65rem;
+      }
+
+      @media (max-width: 480px) {
+        .notfound-card {
+          padding: 2.25rem 1.25rem 1.75rem;
+        }
+
+        .notfound-handwritten {
+          font-size: 1.35rem;
+        }
+
+        .directory-links {
+          gap: 0.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main className="notfound-container">
+      <a href="/" className="notfound-brand" aria-label="Sirwagya Shekhar Portfolio Homepage">
+        <div className="brand-dot" aria-hidden="true">S</div>
+        <span className="brand-name">Sirwagya Shekhar</span>
+      </a>
+
+      <article className="notfound-card">
+        <!-- Washi Tape Accents -->
+        <span className="washi-tape-accent tape-tl" aria-hidden="true"></span>
+        <span className="washi-tape-accent tape-tr" aria-hidden="true"></span>
+
+        <!-- Status Tag -->
+        <div className="notfound-pill">
+          <span className="status-pulse" aria-hidden="true"></span>
+          <span>HTTP 404 // NOT FOUND</span>
+        </div>
+
+        <!-- Giant Display Stamp -->
+        <h1 className="notfound-code">404</h1>
+
+        <!-- Handwritten Annotation -->
+        <span className="notfound-handwritten">
+          oops! looks like this page fell out of the notebook...
+        </span>
+
+        <p className="notfound-body">
+          The requested route doesn't exist or has moved. Every production system, case study, and verified benchmark is indexed right on the main page.
+        </p>
+
+        <!-- CTA & Recovery Links -->
+        <div className="notfound-cta-row">
+          <a href="/" className="primary-home-btn" aria-label="Return to portfolio home page">
+            <span>RETURN TO NOTEBOOK</span>
+            <span className="btn-arrow-box" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <div className="notfound-directory">
+            <p className="directory-label font-tech">Quick Directory Index</p>
+            <nav className="directory-links" aria-label="Quick directory navigation">
+              <a href="/#about" className="directory-pill" aria-label="Navigate to About Me section">
+                <span className="pill-num">01</span>
+                <span>About Me</span>
+              </a>
+              <a href="/#work" className="directory-pill" aria-label="Navigate to Case Studies section">
+                <span className="pill-num">02</span>
+                <span>Case Studies</span>
+              </a>
+              <a href="/#dsa" className="directory-pill" aria-label="Navigate to DSA Journey section">
+                <span className="pill-num">03</span>
+                <span>DSA Journey</span>
+              </a>
+              <a href="/#contact" className="directory-pill" aria-label="Navigate to Contact section">
+                <span className="pill-num">04</span>
+                <span>Get in Touch</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
