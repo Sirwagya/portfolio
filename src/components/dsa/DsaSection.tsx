@@ -197,7 +197,7 @@ export const DsaSection: React.FC = () => {
         </p>
 
         {/* Authentic Stats Deck (3 Tactile Paper Cards with Washi Tape) */}
-        <div className="dsa-stats-deck" aria-label="Problem Solving Statistics">
+        <div className="dsa-stats-deck">
           {/* Card 1: Problems Solved with Difficulty Split */}
           <div className="dsa-stat-card dsa-card-solved">
             <WashiTape
@@ -215,7 +215,7 @@ export const DsaSection: React.FC = () => {
             {/* Visual Difficulty Distribution Bar */}
             <div
               className="dsa-diff-bar-track"
-              aria-label="98 Easy, 140 Medium, 45 Hard"
+              aria-hidden="true"
             >
               <div
                 className="diff-bar-seg seg-easy"
@@ -324,7 +324,7 @@ export const DsaSection: React.FC = () => {
             {/* Mini Habit Squares Graphic */}
             <div
               className="dsa-mini-heatmap"
-              aria-label="Consistency Activity Grid"
+              aria-hidden="true"
             >
               <span className="heatmap-label font-mono">Apr — Sep</span>
               <div className="heatmap-squares">
@@ -347,7 +347,7 @@ export const DsaSection: React.FC = () => {
         </div>
 
         {/* Simple Visual Block: Topic Labels Cluster with Exact Counts */}
-        <div className="dsa-topics-cluster" aria-label="DSA Topic Breakdown">
+        <div className="dsa-topics-cluster">
           {DSA_TOPICS.map((topic) => (
             <div
               key={topic.name}
@@ -380,7 +380,7 @@ export const DsaSection: React.FC = () => {
         </div>
 
         {/* Four Enriched Coding Profile Links */}
-        <div className="dsa-profiles-row" aria-label="Coding Profiles">
+        <div className="dsa-profiles-row">
           {CODING_PROFILES.map((profile) => (
             <a
               key={profile.name}

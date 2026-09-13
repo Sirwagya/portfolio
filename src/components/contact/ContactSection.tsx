@@ -81,7 +81,7 @@ export const ContactSection: React.FC = () => {
 
         {/* 2. Iconic Smiley Character */}
         <div className="contact-smiley-container contact-anim" aria-hidden="true">
-          <svg viewBox="0 0 200 200" className="contact-smiley-svg">
+          <svg viewBox="0 0 200 200" className="contact-smiley-svg" aria-hidden="true" focusable="false">
             {/* Face Circle */}
             <circle cx="100" cy="100" r="88" fill="#fde047" stroke="#121316" strokeWidth="4" />
             {/* Cheeks Blush */}

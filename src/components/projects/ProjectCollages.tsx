@@ -8,14 +8,14 @@ export const NexoraCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-art-box blue-tint">
-          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none">
+          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none" aria-hidden="true" focusable="false">
             <rect x="14" y="14" width="32" height="24" rx="2" stroke="#2563eb" strokeWidth="2" strokeDasharray="3 3" />
             <circle cx="30" cy="26" r="6" fill="#93c5fd" />
           </svg>
         </div>
         <div className="phone-title-sm font-tech font-bold">Autonomous Site Scan</div>
         <div className="phone-sub-xs font-mono">Point-cloud BIM matching 99.4%</div>
-        <button className="phone-pill-btn blue-btn font-mono">Scan Model</button>
+        <span className="phone-pill-btn blue-btn font-mono">Scan Model</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -43,8 +43,8 @@ export const NexoraCollage: React.FC = () => (
           </div>
         </div>
         <div className="phone-cta-row">
-          <button className="phone-sub-btn font-mono">Telemetry</button>
-          <button className="phone-sub-btn dark-sub-btn font-mono">Sign Off</button>
+          <span className="phone-sub-btn font-mono">Telemetry</span>
+          <span className="phone-sub-btn dark-sub-btn font-mono">Sign Off</span>
         </div>
       </div>
       <div className="app-phone-card">
@@ -59,7 +59,7 @@ export const NexoraCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-gauge-wrap">
-          <svg className="phone-gauge-svg" viewBox="0 0 80 80">
+          <svg className="phone-gauge-svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
             <circle cx="40" cy="40" r="32" stroke="#e2e8f0" strokeWidth="6.5" fill="none" />
             <circle cx="40" cy="40" r="32" stroke="#2563eb" strokeWidth="6.5" strokeDasharray="201" strokeDashoffset="52" strokeLinecap="round" fill="none" />
           </svg>
@@ -85,7 +85,7 @@ export const NexoraCollage: React.FC = () => (
         <div className="phone-avatar-circle">🏗️</div>
         <div className="phone-title-sm font-tech font-bold text-center">Chief Engineer</div>
         <div className="phone-sub-xs font-mono text-center">Safety audit fully verified</div>
-        <button className="phone-pill-btn dark-btn font-mono">Inspect</button>
+        <span className="phone-pill-btn dark-btn font-mono">Inspect</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -100,7 +100,7 @@ export const NexoraCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-title-xs font-tech font-bold">Sub-Centimeter Accuracy</div>
-        <button className="phone-pill-btn font-mono text-xs">Run 3D Diff</button>
+        <span className="phone-pill-btn font-mono text-xs">Run 3D Diff</span>
       </div>
     </div>
   </div>
@@ -113,14 +113,14 @@ export const OnceUponMeCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-art-box purple-tint">
-          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none">
+          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none" aria-hidden="true" focusable="false">
             <circle cx="30" cy="25" r="14" stroke="#9333ea" strokeWidth="2" />
             <polygon points="26,18 38,25 26,32" fill="#9333ea" />
           </svg>
         </div>
         <div className="phone-title-sm font-tech font-bold">35mm Reel Engine</div>
         <div className="phone-sub-xs font-mono">60 FPS Remotion render</div>
-        <button className="phone-pill-btn purple-btn font-mono">Preview Reel</button>
+        <span className="phone-pill-btn purple-btn font-mono">Preview Reel</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -145,8 +145,8 @@ export const OnceUponMeCollage: React.FC = () => (
           </div>
         </div>
         <div className="phone-cta-row">
-          <button className="phone-sub-btn font-mono">Timeline</button>
-          <button className="phone-sub-btn dark-sub-btn font-mono">Export</button>
+          <span className="phone-sub-btn font-mono">Timeline</span>
+          <span className="phone-sub-btn dark-sub-btn font-mono">Export</span>
         </div>
       </div>
       <div className="app-phone-card">
@@ -161,7 +161,7 @@ export const OnceUponMeCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-gauge-wrap">
-          <svg className="phone-gauge-svg" viewBox="0 0 80 80">
+          <svg className="phone-gauge-svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
             <circle cx="40" cy="40" r="32" stroke="#e2e8f0" strokeWidth="6.5" fill="none" />
             <circle cx="40" cy="40" r="32" stroke="#9333ea" strokeWidth="6.5" strokeDasharray="201" strokeDashoffset="32" strokeLinecap="round" fill="none" />
           </svg>
@@ -187,7 +187,7 @@ export const OnceUponMeCollage: React.FC = () => (
         <div className="phone-avatar-circle">🎞️</div>
         <div className="phone-title-sm font-tech font-bold text-center">Reel Mastered</div>
         <div className="phone-sub-xs font-mono text-center">Ready for social distribution</div>
-        <button className="phone-pill-btn dark-btn font-mono">Play Full</button>
+        <span className="phone-pill-btn dark-btn font-mono">Play Full</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -202,7 +202,7 @@ export const OnceUponMeCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-title-xs font-tech font-bold">Personalized Memory</div>
-        <button className="phone-pill-btn font-mono text-xs">Share Reel</button>
+        <span className="phone-pill-btn font-mono text-xs">Share Reel</span>
       </div>
     </div>
   </div>
@@ -215,7 +215,7 @@ export const CampusConnectCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-art-box yellow-tint">
-          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none">
+          <svg className="phone-plant-svg" viewBox="0 0 60 50" fill="none" aria-hidden="true" focusable="false">
             <circle cx="20" cy="25" r="8" fill="#fde047" />
             <circle cx="40" cy="25" r="8" fill="#fde047" />
             <path d="M20 25h20" stroke="#ca8a04" strokeWidth="2" />
@@ -223,7 +223,7 @@ export const CampusConnectCollage: React.FC = () => (
         </div>
         <div className="phone-title-sm font-tech font-bold">HackPune 2026 // 36H</div>
         <div className="phone-sub-xs font-mono">340 students registered live</div>
-        <button className="phone-pill-btn yellow-btn font-mono">RSVP Now</button>
+        <span className="phone-pill-btn yellow-btn font-mono">RSVP Now</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -248,8 +248,8 @@ export const CampusConnectCollage: React.FC = () => (
           </div>
         </div>
         <div className="phone-cta-row">
-          <button className="phone-sub-btn font-mono">Map View</button>
-          <button className="phone-sub-btn dark-sub-btn font-mono">Join Room</button>
+          <span className="phone-sub-btn font-mono">Map View</span>
+          <span className="phone-sub-btn dark-sub-btn font-mono">Join Room</span>
         </div>
       </div>
       <div className="app-phone-card">
@@ -264,7 +264,7 @@ export const CampusConnectCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-gauge-wrap">
-          <svg className="phone-gauge-svg" viewBox="0 0 80 80">
+          <svg className="phone-gauge-svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
             <circle cx="40" cy="40" r="32" stroke="#e2e8f0" strokeWidth="6.5" fill="none" />
             <circle cx="40" cy="40" r="32" stroke="#ca8a04" strokeWidth="6.5" strokeDasharray="201" strokeDashoffset="44" strokeLinecap="round" fill="none" />
           </svg>
@@ -290,7 +290,7 @@ export const CampusConnectCollage: React.FC = () => (
         <div className="phone-avatar-circle">🎓</div>
         <div className="phone-title-sm font-tech font-bold text-center">Sirwagya Shekhar</div>
         <div className="phone-sub-xs font-mono text-center">Lead Campus Organizer</div>
-        <button className="phone-pill-btn dark-btn font-mono">Profile</button>
+        <span className="phone-pill-btn dark-btn font-mono">Profile</span>
       </div>
       <div className="app-phone-card">
         <div className="phone-notch" />
@@ -305,7 +305,7 @@ export const CampusConnectCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-title-xs font-tech font-bold">WebSocket Real-Time Sync</div>
-        <button className="phone-pill-btn font-mono text-xs">Join Feed</button>
+        <span className="phone-pill-btn font-mono text-xs">Join Feed</span>
       </div>
     </div>
   </div>
@@ -319,7 +319,7 @@ export const VoltCraveCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-art-box green-tint">
-          <svg className="phone-plant-svg" viewBox="0 0 60 60" fill="none">
+          <svg className="phone-plant-svg" viewBox="0 0 60 60" fill="none" aria-hidden="true" focusable="false">
             <circle cx="34" cy="22" r="11" stroke="#141416" strokeWidth="2.2" fill="#dcfce7" />
             <path d="M26 30l-8 8" stroke="#141416" strokeWidth="3" strokeLinecap="round" />
             <path d="M34 16c0 5-4 8-4 8s4-1 4-8z" fill="#22c55e" stroke="#141416" strokeWidth="1.2" />
@@ -328,7 +328,7 @@ export const VoltCraveCollage: React.FC = () => (
           </svg>
         </div>
         <div className="phone-title-sm font-tech font-bold">Real-Time Progress Tracking</div>
-        <button className="phone-pill-btn green-btn font-mono">Get Started</button>
+        <span className="phone-pill-btn green-btn font-mono">Get Started</span>
       </div>
 
       <div className="app-phone-card">
@@ -383,8 +383,8 @@ export const VoltCraveCollage: React.FC = () => (
           </div>
         </div>
         <div className="phone-cta-row">
-          <button className="phone-sub-btn font-mono">Details</button>
-          <button className="phone-sub-btn dark-sub-btn font-mono">View Room</button>
+          <span className="phone-sub-btn font-mono">Details</span>
+          <span className="phone-sub-btn dark-sub-btn font-mono">View Room</span>
         </div>
       </div>
 
@@ -403,7 +403,7 @@ export const VoltCraveCollage: React.FC = () => (
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-gauge-wrap">
-          <svg className="phone-gauge-svg" viewBox="0 0 80 80">
+          <svg className="phone-gauge-svg" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
             <circle cx="40" cy="40" r="32" stroke="#e2e8f0" strokeWidth="6.5" fill="none" />
             <circle
               cx="40"
@@ -455,7 +455,7 @@ export const VoltCraveCollage: React.FC = () => (
         <div className="phone-avatar-circle">🧑‍💻</div>
         <div className="phone-title-sm font-tech font-bold text-center">Welcome, Alexander</div>
         <div className="phone-sub-xs font-mono text-center">Your home energy footprint is synced</div>
-        <button className="phone-pill-btn dark-btn font-mono">Continue</button>
+        <span className="phone-pill-btn dark-btn font-mono">Continue</span>
       </div>
 
       <div className="app-phone-card">
@@ -470,19 +470,19 @@ export const VoltCraveCollage: React.FC = () => (
           <div className="macro-cell"><span>Kitchen</span><strong>1</strong></div>
           <div className="macro-cell"><span>Bath</span><strong>2</strong></div>
         </div>
-        <button className="phone-pill-btn font-mono text-xs">Next</button>
+        <span className="phone-pill-btn font-mono text-xs">Next</span>
       </div>
 
       <div className="app-phone-card">
         <div className="phone-notch" />
         <div className="phone-art-box yellow-tint">
-          <svg className="phone-plant-svg" viewBox="0 0 60 40" fill="none">
+          <svg className="phone-plant-svg" viewBox="0 0 60 40" fill="none" aria-hidden="true" focusable="false">
             <path d="M15 32c5-16 25-16 30 0" stroke="#ca8a04" strokeWidth="2.5" strokeLinecap="round" />
             <circle cx="30" cy="14" r="7" fill="#fde047" stroke="#ca8a04" strokeWidth="1.8" />
           </svg>
         </div>
         <div className="phone-title-xs font-tech font-bold">Personalized Routines</div>
-        <button className="phone-pill-btn font-mono text-xs">View Routine</button>
+        <span className="phone-pill-btn font-mono text-xs">View Routine</span>
       </div>
     </div>
   </div>

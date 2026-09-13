@@ -18,6 +18,7 @@ export const DoodleArrow: React.FC<{
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
+        focusable="false"
       >
         <path
           d="M12 10C24 8 48 16 46 36C45 44 38 48 30 49M30 49L37 42M30 49L38 54"
@@ -40,6 +41,7 @@ export const DoodleArrow: React.FC<{
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
+        focusable="false"
       >
         <path
           d="M6 16C18 14 38 15 52 14M52 14L42 7M52 14L43 22"
@@ -62,6 +64,7 @@ export const DoodleArrow: React.FC<{
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
+        focusable="false"
       >
         <path
           d="M8 34C13 22 21 13 32 6"
@@ -90,6 +93,7 @@ export const DoodleArrow: React.FC<{
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
+        focusable="false"
       >
         <path
           d="M32 34C27 22 19 13 8 6"
@@ -118,6 +122,7 @@ export const DoodleArrow: React.FC<{
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
+      focusable="false"
     >
       <path
         d="M16 6C15 20 14 38 14 52M14 52L7 42M14 52L22 43"
@@ -145,6 +150,7 @@ export const DoodleUnderline: React.FC<{
       className={className}
       preserveAspectRatio="none"
       aria-hidden="true"
+      focusable="false"
     >
       <path
         d="M3 11C45 4 120 13 197 7C140 12 70 14 12 13"
@@ -172,6 +178,7 @@ export const DoodleStar: React.FC<{
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
+      focusable="false"
     >
       <path
         d="M12 2L13.8 8.5L20 10L14.5 13.5L16 20L11.5 15.5L6 19L8.2 13L2.5 10.5L9 8.8L12 2Z"

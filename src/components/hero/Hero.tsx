@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
         {/* 1. Name Intro: "my name is" */}
         <div className="hero-name-intro">
           <span className="font-handwriting my-name-is-text">my name is</span>
-          <svg className="my-name-underline" width="68" height="8" viewBox="0 0 64 8" fill="none">
+          <svg className="my-name-underline" width="68" height="8" viewBox="0 0 64 8" fill="none" aria-hidden="true" focusable="false">
             <path d="M2 3C18 1.5 46 2 62 3.5" stroke="#121316" strokeWidth="1.5" strokeLinecap="round" />
             <path d="M6 6.5C22 5 44 5.5 58 6.5" stroke="#121316" strokeWidth="1.2" strokeLinecap="round" />
           </svg>
@@ -186,7 +186,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
           {/* Main Orange Framed Box */}
           <div className="hero-framed-nameplate">
             <div className="hero-wordmark-mask">
-              <div className="hero-wordmark font-pixel" aria-label="Sirwagya">
+              <div className="hero-wordmark font-pixel">
                 SIRWAGYA
               </div>
             </div>
@@ -247,8 +247,8 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
           <h1 className="hero-statement-h1 font-headline">
             <span className="headline-line headline-line-1">
               I build software that{' '}
-              <span className="inline-hero-badge badge-target" aria-label="target icon">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <span className="inline-hero-badge badge-target" aria-hidden="true">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
                   <circle cx="22" cy="22" r="19.5" fill="#15ac68" stroke="#171411" strokeWidth="2.5" />
                   <circle cx="22" cy="22" r="13.2" fill="#ffffff" />
                   <circle cx="22" cy="22" r="6.6" fill="#15ac68" />
@@ -259,8 +259,8 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
             <br />
             <span className="headline-line headline-line-2">
               feels alive.{' '}
-              <span className="inline-hero-badge badge-flower" aria-label="flower icon">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+              <span className="inline-hero-badge badge-flower" aria-hidden="true">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
                   <g fill="#f94b8a">
                     <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(0 22 22)" />
                     <ellipse cx="22" cy="9.2" rx="4.8" ry="8.6" transform="rotate(36 22 22)" />

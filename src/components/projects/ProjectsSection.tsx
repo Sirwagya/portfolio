@@ -104,7 +104,7 @@ export const ProjectsSection: React.FC = () => {
                   backgroundColor: proj.theme.bg,
                   color: proj.theme.textColor
                 }}
-                aria-label={`${proj.title} Case Study`}
+                aria-labelledby={`project-title-${proj.id}`}
               >
                 {/* Left Column: Project Editorial Story */}
                 <div className="sticky-sheet-left">
@@ -121,7 +121,10 @@ export const ProjectsSection: React.FC = () => {
                   </div>
 
                   {/* Clean Project Title */}
-                  <h3 className="sticky-sheet-title font-headline">
+                  <h3
+                    id={`project-title-${proj.id}`}
+                    className="sticky-sheet-title font-headline"
+                  >
                     {proj.title}
                   </h3>
 

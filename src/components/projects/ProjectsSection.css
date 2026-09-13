@@ -443,6 +443,9 @@
 
 /* Pill Buttons */
 .phone-pill-btn {
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
   border: none;
   border-radius: 9999px;
   padding: 4px 10px;
@@ -619,6 +622,9 @@
 }
 
 .phone-sub-btn {
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
   flex: 1;
   background: #f1f5f9;
   border: 1px solid #cbd5e1;

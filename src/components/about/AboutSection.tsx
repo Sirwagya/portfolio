@@ -52,6 +52,7 @@ export const AboutSection: React.FC = () => {
           viewBox="0 0 1000 32"
           preserveAspectRatio="none"
           aria-hidden="true"
+          focusable="false"
         >
           <path
             d="M0,16 Q500,30 1000,16"

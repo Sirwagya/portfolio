@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
                 className={`toolbar-link ${activeSection === 'hero' ? 'active-home-pill' : ''}`}
                 aria-label="Navigate to Home section"
               >
-                <span className="toolbar-star">★</span> HOME
+                <span className="toolbar-star" aria-hidden="true">★</span> HOME
               </a>
               <a
                 href="#about"
@@ -121,7 +121,7 @@ export const Navbar: React.FC = () => {
               className="toolbar-contact-pill"
               aria-label="Navigate to Contact section"
             >
-              <span className="heart-icon">♥</span>
+              <span className="heart-icon" aria-hidden="true">♥</span>
               <span>CONTACT</span>
             </a>
 
@@ -159,6 +159,7 @@ export const Navbar: React.FC = () => {
               href="#hero"
               onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}
               className="mobile-nav-row"
+              aria-label="Home section"
             >
               <span className="mobile-row-idx font-mono">01</span>
               <span className="mobile-row-title font-tech">HOME</span>
@@ -167,6 +168,7 @@ export const Navbar: React.FC = () => {
               href="#about"
               onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
               className="mobile-nav-row"
+              aria-label="About Me section"
             >
               <span className="mobile-row-idx font-mono">02</span>
               <span className="mobile-row-title font-tech">ABOUT ME</span>
@@ -175,6 +177,7 @@ export const Navbar: React.FC = () => {
               href="#work"
               onClick={(e) => { e.preventDefault(); scrollToSection('work'); }}
               className="mobile-nav-row"
+              aria-label="Case Studies section"
             >
               <span className="mobile-row-idx font-mono">03</span>
               <span className="mobile-row-title font-tech">CASE STUDIES (4)</span>
@@ -183,6 +186,7 @@ export const Navbar: React.FC = () => {
               href="#dsa"
               onClick={(e) => { e.preventDefault(); scrollToSection('dsa'); }}
               className="mobile-nav-row"
+              aria-label="DSA Journey section"
             >
               <span className="mobile-row-idx font-mono">04</span>
               <span className="mobile-row-title font-tech">DSA JOURNEY</span>
@@ -191,6 +195,7 @@ export const Navbar: React.FC = () => {
               href="#contact"
               onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
               className="mobile-nav-row"
+              aria-label="Contact section"
             >
               <span className="mobile-row-idx font-mono">05</span>
               <span className="mobile-row-title font-tech">SAY HI / CONTACT</span>
@@ -200,10 +205,10 @@ export const Navbar: React.FC = () => {
           <div className="mobile-drawer-footer">
             <span className="mobile-location-tag font-mono">📍 PUNE, INDIA // FULL STACK + AI</span>
             <div className="mobile-social-row">
-              <a href={PERSONAL.links.github} target="_blank" rel="noopener noreferrer" className="mobile-social-pill">
+              <a href={PERSONAL.links.github} target="_blank" rel="noopener noreferrer" className="mobile-social-pill" aria-label="Sirwagya's GitHub Profile">
                 <GithubIcon size={14} /> GitHub
               </a>
-              <a href={PERSONAL.links.linkedin} target="_blank" rel="noopener noreferrer" className="mobile-social-pill">
+              <a href={PERSONAL.links.linkedin} target="_blank" rel="noopener noreferrer" className="mobile-social-pill" aria-label="Sirwagya's LinkedIn Profile">
                 <LinkedinIcon size={14} /> LinkedIn
               </a>
             </div>

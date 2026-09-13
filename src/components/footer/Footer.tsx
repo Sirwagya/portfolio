@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="notebook-editorial-footer" aria-label="Colophon and Navigation">
       {/* Horizon Wave Divider */}
-      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="footer-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="footer-wave-divider" aria-hidden="true" focusable="false">
         <path d="M-10 110C420 10 1030 4 1450 70" stroke="rgba(20, 20, 22, 0.12)" strokeWidth="1.5" />
       </svg>
 
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               <a href="#contact" className="footer-nav-item">Contact</a>
             </nav>
 
-            <div className="footer-social-circles" aria-label="Social Links">
+            <div className="footer-social-circles">
               <a
                 href={PERSONAL.links.github}
                 target="_blank"

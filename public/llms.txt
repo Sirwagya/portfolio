@@ -1,0 +1,24 @@
+# Sirwagya Shekhar
+
+> Sirwagya Shekhar is a Computer Science Engineering student and full stack and AI developer based in Pune, Maharashtra, building AI systems, backend infrastructure, and full stack products.
+
+Sirwagya's portfolio showcases selected software projects, technical interests, and current learning in AI engineering, backend architecture, system design, and Data Structures & Algorithms.
+
+## Portfolio
+
+- [Sirwagya.dev](https://sirwagya.dev/): Personal portfolio, background, selected projects, and current work.
+
+## Projects
+
+- [NEXORA AI](https://github.com/urvashislash/nexora-ai): Team project focused on turning fragmented construction evidence into auditable project intelligence.
+- [OnceUponMe Video Engine](https://github.com/Sirwagya/OnceUponMe-Video-Engine): Automated video pipeline for generating personalized cinematic reels from movie footage.
+- [Campus Connect](https://github.com/Sirwagya/campus-connect): Full stack campus community and collaboration platform.
+- [Crave Check](https://github.com/Sirwagya/Crave-Check): AI-powered food intelligence application with image analysis, personalization, caching, and streaming.
+
+## Profiles
+
+- [GitHub](https://github.com/Sirwagya)
+- [LinkedIn](https://www.linkedin.com/in/sirwxgya/)
+- [LeetCode](https://leetcode.com/u/sirwagya)
+- [CodeChef](https://www.codechef.com/users/sirwagya)
+- [Codeforces](https://codeforces.com/profile/sirwagya)
