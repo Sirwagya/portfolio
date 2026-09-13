@@ -186,9 +186,9 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
           {/* Main Orange Framed Box */}
           <div className="hero-framed-nameplate">
             <div className="hero-wordmark-mask">
-              <div className="hero-wordmark font-pixel">
+              <h1 className="hero-wordmark font-pixel">
                 SIRWAGYA
-              </div>
+              </h1>
             </div>
             {/* <span className="hero-shekhar-handwritten font-handwriting">
               shekhar
@@ -244,7 +244,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
             />
           </div>
 
-          <h1 className="hero-statement-h1 font-headline">
+          <p className="hero-statement-h1 font-headline">
             <span className="headline-line headline-line-1">
               I build software that{' '}
               <span className="inline-hero-badge badge-target" aria-hidden="true">
@@ -289,7 +289,7 @@ export const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                 </svg>
               </span>
             </span>
-          </h1>
+          </p>
         </div>
 
         {/* 5. CTA Button */}

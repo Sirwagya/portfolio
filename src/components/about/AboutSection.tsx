@@ -41,7 +41,6 @@ export const AboutSection: React.FC = () => {
       <div className="about-curved-divider-wrap about-anim">
         <div className="about-curved-divider-annotation">
           <h2 className="about-section-heading">
-            <span className="sr-only">ABOUT SIRWAGYA SHEKHAR</span>
             <HandwrittenNote color="dark" size="lg" rotate={-2}>
               about me!
             </HandwrittenNote>
