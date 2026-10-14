@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowUpRight, Flame, Trophy, Calendar } from "lucide-react";
@@ -11,6 +11,7 @@ import {
   CodeforcesIcon,
   CodolioIcon,
 } from "../ui/Icons";
+import { useDsaStats } from "../../hooks/useDsaStats";
 import "./DsaSection.css";
 
 gsap.registerPlugin(useGSAP);
@@ -42,39 +43,63 @@ interface CodingProfile {
   label: string;
 }
 
-const CODING_PROFILES: CodingProfile[] = [
-  {
-    name: "LEETCODE",
-    url: "https://leetcode.com/u/sirwagya",
-    icon: <LeetCodeIcon size={16} className="dsa-profile-icon" />,
-    badge: "250+ Solved",
-    label: "Visit Sirwagya on LeetCode",
-  },
-  {
-    name: "CODECHEF",
-    url: "https://www.codechef.com/users/sirwagya",
-    icon: <CodeChefIcon size={16} className="dsa-profile-icon" />,
-    badge: "1649 · 3★ Coder",
-    label: "Visit Sirwagya on CodeChef",
-  },
-  {
-    name: "CODEFORCES",
-    url: "https://codeforces.com/profile/sirwagya",
-    icon: <CodeforcesIcon size={16} className="dsa-profile-icon" />,
-    badge: "Contestant",
-    label: "Visit Sirwagya on Codeforces",
-  },
-  {
-    name: "CODOLIO",
-    url: "https://codolio.com/profile/sirwagya",
-    icon: <CodolioIcon size={16} className="dsa-profile-icon" />,
-    badge: "Verified · #8232",
-    label: "Visit Sirwagya on Codolio",
-  },
-];
-
 export const DsaSection: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const { stats, isLive } = useDsaStats();
+
+  const codingProfiles: CodingProfile[] = useMemo(
+    () => [
+      {
+        name: "LEETCODE",
+        url: "https://leetcode.com/u/sirwagya",
+        icon: <LeetCodeIcon size={16} className="dsa-profile-icon" />,
+        badge: stats.leetcode.badge || `${stats.leetcode.totalSolved}+ Solved`,
+        label: "Visit Sirwagya on LeetCode (@sirwagya)",
+      },
+      {
+        name: "CODECHEF",
+        url: "https://www.codechef.com/users/sirwagya",
+        icon: <CodeChefIcon size={16} className="dsa-profile-icon" />,
+        badge:
+          stats.codechef.badge ||
+          `${stats.codechef.rating} · ${stats.codechef.stars}★ Coder`,
+        label: "Visit Sirwagya on CodeChef (@sirwagya)",
+      },
+      {
+        name: "CODEFORCES",
+        url: "https://codeforces.com/profile/sirwxgya",
+        icon: <CodeforcesIcon size={16} className="dsa-profile-icon" />,
+        badge:
+          stats.codeforces.badge ||
+          (stats.codeforces.rating
+            ? `${stats.codeforces.rating} · ${stats.codeforces.rank}`
+            : "Active Contestant"),
+        label: "Visit Sirwagya on Codeforces (@sirwxgya)",
+      },
+      {
+        name: "CODOLIO",
+        url: "https://codolio.com/profile/sirwagya",
+        icon: <CodolioIcon size={16} className="dsa-profile-icon" />,
+        badge: stats.codolio.badge || "Verified · #8232",
+        label: "Visit Sirwagya on Codolio (@sirwagya)",
+      },
+    ],
+    [stats]
+  );
+
+  const lcTotal = stats.leetcode.totalSolved || 290;
+  const easyPct = Math.max(
+    Math.round((stats.leetcode.easySolved / lcTotal) * 100),
+    10
+  );
+  const medPct = Math.max(
+    Math.round((stats.leetcode.mediumSolved / lcTotal) * 100),
+    10
+  );
+  const hardPct = Math.max(100 - easyPct - medPct, 5);
+
+  const starCount = Math.min(Math.max(stats.codechef.stars || 3, 1), 7);
+  const starString = "★".repeat(starCount);
 
   useGSAP(
     () => {
@@ -167,7 +192,7 @@ export const DsaSection: React.FC = () => {
       aria-label="DSA Journey"
     >
       <div className="dsa-editorial-wrapper">
-        {/* Small Handwritten Header Label */}
+        {/* Small Handwritten Header Label with Live Badge */}
         <div className="dsa-handwritten-label dsa-header-anim">
           <HandwrittenNote color="green" size="xl" rotate={-2}>
             dsa journey
@@ -179,6 +204,12 @@ export const DsaSection: React.FC = () => {
             height={18}
             className="dsa-arrow"
           />
+          <span
+            className="dsa-live-badge font-mono"
+            title="Real-time ratings dynamically fetched from Codeforces, CodeChef, and LeetCode"
+          >
+            <span className="dsa-live-dot" /> {isLive ? "live sync" : "dynamic sync"}
+          </span>
         </div>
 
         {/* Large Editorial Heading */}
@@ -209,7 +240,9 @@ export const DsaSection: React.FC = () => {
             />
             <div className="dsa-stat-top">
               <span className="dsa-stat-label font-tech">QUESTIONS SOLVED</span>
-              <span className="dsa-stat-num font-display">355</span>
+              <span className="dsa-stat-num font-display">
+                {stats.totalSolved}
+              </span>
             </div>
 
             {/* Visual Difficulty Distribution Bar */}
@@ -219,38 +252,38 @@ export const DsaSection: React.FC = () => {
             >
               <div
                 className="diff-bar-seg seg-easy"
-                style={{ width: "35%" }}
-                title="Easy: 98"
+                style={{ width: `${easyPct}%` }}
+                title={`Easy: ${stats.leetcode.easySolved}`}
               />
               <div
                 className="diff-bar-seg seg-medium"
-                style={{ width: "49%" }}
-                title="Medium: 140"
+                style={{ width: `${medPct}%` }}
+                title={`Medium: ${stats.leetcode.mediumSolved}`}
               />
               <div
                 className="diff-bar-seg seg-hard"
-                style={{ width: "16%" }}
-                title="Hard: 45"
+                style={{ width: `${hardPct}%` }}
+                title={`Hard: ${stats.leetcode.hardSolved}`}
               />
             </div>
 
             {/* Difficulty Pills */}
             <div className="dsa-diff-badges font-mono">
               <span className="diff-tag tag-easy">
-                <span className="diff-dot dot-easy" /> 98 Easy
+                <span className="diff-dot dot-easy" /> {stats.leetcode.easySolved} Easy
               </span>
               <span className="diff-tag tag-medium">
-                <span className="diff-dot dot-medium" /> 140 Medium
+                <span className="diff-dot dot-medium" /> {stats.leetcode.mediumSolved} Medium
               </span>
               <span className="diff-tag tag-hard">
-                <span className="diff-dot dot-hard" /> 45 Hard
+                <span className="diff-dot dot-hard" /> {stats.leetcode.hardSolved} Hard
               </span>
             </div>
 
             {/* Handwritten Marginalia */}
             <div className="dsa-stat-annotation">
               <HandwrittenNote color="dark" size="sm" rotate={-2}>
-                140 mediums cracked!
+                {stats.leetcode.mediumSolved} mediums cracked!
               </HandwrittenNote>
             </div>
           </div>
@@ -270,23 +303,33 @@ export const DsaSection: React.FC = () => {
                 <Trophy size={14} className="dsa-stat-icon-gold" />
               </div>
               <div className="dsa-rating-flex">
-                <span className="dsa-stat-num font-display">1649</span>
-                <span className="dsa-star-tier font-tech">★★★</span>
+                <span className="dsa-stat-num font-display">
+                  {stats.codechef.rating}
+                </span>
+                <span className="dsa-star-tier font-tech">{starString}</span>
               </div>
             </div>
 
             <div className="dsa-stat-meta-box font-mono">
               <div className="meta-line">
                 <span className="meta-dim">Peak:</span>
-                <span className="meta-val font-bold">1649 (3-Star)</span>
+                <span className="meta-val font-bold">
+                  {stats.codechef.highestRating} ({stats.codechef.stars}-Star)
+                </span>
               </div>
               <div className="meta-line">
                 <span className="meta-dim">Contests:</span>
-                <span className="meta-val">15 Attended</span>
+                <span className="meta-val">
+                  {stats.codechef.contests} Attended
+                </span>
               </div>
               <div className="meta-line">
                 <span className="meta-dim">Global Rank:</span>
-                <span className="meta-val">#8232 (C-Score)</span>
+                <span className="meta-val">
+                  {stats.codechef.globalRank
+                    ? `#${stats.codechef.globalRank}`
+                    : "#8232 (C-Score)"}
+                </span>
               </div>
             </div>
           </div>
@@ -381,7 +424,7 @@ export const DsaSection: React.FC = () => {
 
         {/* Four Enriched Coding Profile Links */}
         <div className="dsa-profiles-row">
-          {CODING_PROFILES.map((profile) => (
+          {codingProfiles.map((profile) => (
             <a
               key={profile.name}
               href={profile.url}

@@ -60,7 +60,7 @@ Full-stack and AI developer working where high-reliability engineering meets tho
 450+ solved algorithmic problems with competitive rankings across platforms:
 - **LeetCode:** https://leetcode.com/u/sirwagya
 - **CodeChef:** https://www.codechef.com/users/sirwagya
-- **Codeforces:** https://codeforces.com/profile/sirwagya
+- **Codeforces:** https://codeforces.com/profile/sirwxgya
 - **Codolio:** https://codolio.com/profile/sirwagya
 
 ---

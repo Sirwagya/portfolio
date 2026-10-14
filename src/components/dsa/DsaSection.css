@@ -36,6 +36,44 @@
   transform: translateY(2px);
 }
 
+/* Live Sync Badge */
+.dsa-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.22rem 0.6rem;
+  background-color: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.28);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #15803d;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  user-select: none;
+  box-shadow: 1px 1px 0px rgba(22, 163, 74, 0.2);
+}
+
+.dsa-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #16a34a;
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.6);
+  animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
 /* Large Main Headline */
 .dsa-main-headline {
   font-family: var(--font-display), sans-serif;

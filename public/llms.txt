@@ -21,5 +21,5 @@ Sirwagya's portfolio showcases selected software projects, technical interests, 
 - [LinkedIn](https://www.linkedin.com/in/sirwxgya/)
 - [LeetCode](https://leetcode.com/u/sirwagya)
 - [CodeChef](https://www.codechef.com/users/sirwagya)
-- [Codeforces](https://codeforces.com/profile/sirwagya)
+- [Codeforces](https://codeforces.com/profile/sirwxgya)
 - [Codolio](https://codolio.com/profile/sirwagya)
